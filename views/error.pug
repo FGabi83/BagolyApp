@@ -1,8 +1,7 @@
+extends layout
 
-doctype html
-html
-  head
-    title Error
-  body
-    h1 An error occurred
+block content
+  .inner
+    h2= status
     p= message
+  pre.error!= stackHighlighted

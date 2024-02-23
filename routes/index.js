@@ -8,6 +8,14 @@ const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', (req, res) => {
     res.render('index');
-  });
+});
+
+
+router.get('/itallap', catchErrors(drinkController.getDrinks));
+
+
+router.get('/kapcsolat', (req, res) => {
+    res.render('contact');
+}); 
 
 module.exports = router;
