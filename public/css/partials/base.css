@@ -1,0 +1,57 @@
+/*-----------------------------------*\
+* BASIC SETTINGS OF THE PAGE
+\*-----------------------------------*/
+
+:root {
+    --primary-color:        #BC956C; /* brand - Light brown */
+    --secondary-color:      #FFFFFF; 
+    --brand-color:          #042236; /* brand - Dark blue */ 
+    --background-color:     #F4F3F5; /* light grey*/
+    --tertiary-color:       #FEEECA; /* brand - Light yellow - not in use */
+    --font-size-regular:    1.25rem;
+    --font-size-big:        2.5rem;
+    --font-size-medium:     0.875rem;
+    --font-size-small:      0.75rem;
+    --line-height-regular:  1.875rem;
+    --line-height-big:      3.125rem;
+    --line-height-medium:   1.125rem;
+    --line-height-small:    0.9375rem;
+} 
+
+/* normalize CSS */
+
+* {
+    margin:     0;
+    padding:    0;
+    box-sizing: border-box;
+}
+
+/*@font-face { this code causes the app to crash
+    font-family: "panama";
+    src: url("../fonts/panama-bold-webfont.woff2") format("woff2"),
+      url("../fonts/panama-bold-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }*/
+  
+
+  html {
+    background-color: var(--background-color);
+    color:            var(--primary-color);
+    font-size:        16px;
+
+  }
+
+
+  body {
+    width:       100%;
+    font-family: 'Montserrat', sans-serif; /* Roboto? */
+    text-align:  left;
+    font-size:   var(--font-size-regular);
+    line-height: var(--line-height-regular);
+
+  }
+
+    a {
+      text-decoration: none;
+    }

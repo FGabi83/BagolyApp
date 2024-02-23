@@ -7,7 +7,7 @@ const drinkController = require('../controllers/drinkController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', (req, res) => {
-    res.send('Hey! It works!');
+    res.render('index');
   });
 
 module.exports = router;

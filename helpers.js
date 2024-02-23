@@ -21,7 +21,8 @@ exports.icon = (name) => fs.readFileSync(`./public/images/icons/${name}.svg`);
 exports.siteName = `Bagoly Pub`;
 
 exports.menu = [
-  { slug: '/itallap', title: 'Itallap', icon: 'store', },
-  { slug: '/kapcsolat', title: 'Kapcsolat', icon: 'map', },
+  { slug: '/', title: 'Kezdőlap', },
+  { slug: '/itallap', title: 'Itallap', },
+  { slug: '/kapcsolat', title: 'Kapcsolat', },
   
 ];
