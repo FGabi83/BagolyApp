@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  .content-card      
+    table
+      caption Csapolt Sörök
+      thead
+        td Megnevezés
+        td Pohár 
+        td Korsó 
+      each drink in brewedBeers
+        tr 
+          td= drink.name
+          td #{drink.smallPrice} Ft
+          td #{drink.largePrice} Ft
+  .content-card      
+    table
+      caption Üveges Sörök
+      thead
+        td Megnevezés
+        td Ár 
+      each drink in bottledBeers
+        tr 
+          td= drink.name
+          td #{drink.smallPrice} Ft
+  .content-card      
+    table
+      caption Rövid Italok
+      thead
+        td Megnevezés
+        td 2 cl 
+        td 4 cl
+      each drink in shots
+        tr 
+          td= drink.name
+          td #{drink.smallPrice} Ft
+          td #{drink.largePrice} Ft
+  .content-card      
+    table
+      caption Üditők
+      thead
+        td Megnevezés
+        td Ár 
+      each drink in softDrinks
+        tr 
+          td= drink.name
+          td #{drink.smallPrice} Ft       
