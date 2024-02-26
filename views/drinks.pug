@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  .content-card      
-    table
-      caption Csapolt Sörök
-      thead
+  .table-container    
+    table.table
+      caption.table-title Csapolt Sörök
+      thead.table-header
         td Megnevezés
         td Pohár 
         td Korsó 
@@ -13,20 +13,20 @@ block content
           td= drink.name
           td #{drink.smallPrice} Ft
           td #{drink.largePrice} Ft
-  .content-card      
-    table
-      caption Üveges Sörök
-      thead
+  .table-container     
+    table.table
+      caption.table-title Üveges Sörök
+      thead.table-header
         td Megnevezés
         td Ár 
       each drink in bottledBeers
         tr 
           td= drink.name
           td #{drink.smallPrice} Ft
-  .content-card      
-    table
-      caption Rövid Italok
-      thead
+  .table-container      
+    table.table
+      caption.table-title Rövid Italok
+      thead.table-header
         td Megnevezés
         td 2 cl 
         td 4 cl
@@ -35,10 +35,10 @@ block content
           td= drink.name
           td #{drink.smallPrice} Ft
           td #{drink.largePrice} Ft
-  .content-card      
-    table
-      caption Üditők
-      thead
+  .table-container     
+    table.table
+      caption.table-title Üditők
+      thead.table-header
         td Megnevezés
         td Ár 
       each drink in softDrinks

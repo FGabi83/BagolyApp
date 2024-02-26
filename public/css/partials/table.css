@@ -1,0 +1,39 @@
+/*
+* 1) Dark blue separator under the table header
+*/
+
+.table-container {
+    background: var(--secondary-color);
+    border-radius: .9375rem;
+    padding:      1rem;
+    width:         40%;
+}
+
+.table {
+    table-layout:    auto;
+    width:           100%;
+    height:          auto;
+    opacity:         1;
+    border-collapse: collapse; /* 1 */
+    
+  }
+
+    .table-title {
+      width:         100%;
+      color:         var(--primary-color);
+      text-transform: uppercase;
+      font-weight:    bold;
+      margin-bottom: 1rem;
+      
+    }
+     
+    .table thead {
+      color:         var(--brand-color);
+      border-bottom: 1px solid var(--brand-color); /* 1 */
+      width:         auto;
+    }
+
+    .table td {
+        padding:         .3125rem;
+        width:           auto;
+    }
