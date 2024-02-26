@@ -1,0 +1,29 @@
+mixin contactPage()
+  .content-card.content-card__address
+    iframe.map(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d672.9896116822155!2d19.048736669601567!3d47.568596903052125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741d99a37908d43%3A0xa9f86a77f0c7ce9!2zQnVkYXBlc3QsIFLDs21haSB0w6lyIDEsIDEwMzE!5e0!3m2!1shu!2shu!4v1708427020623!5m2!1shu!2shu" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+    div.address-text
+      h6.highlighted-text.address-title Cím
+      p.address
+        1031 Budapest, Római tér 1.
+    p.phone-email
+      a.highlighted-text.phone(href="tel:1234567890") (123) 456-7890
+      a.highlighted-text.email(href="mailto:name@example.com") name@example.com
+    div.icons-wrapper
+      a(href="https://www.facebook.com" target="_blank")
+        i.icons.fa-brands.fa-facebook-f
+      a(href="https://www.instagram.com" target="_blank")
+        i.icons.fa-brands.fa-instagram
+      a(href="https://www.twitter.com" target="_blank")
+        i.icons.fa-brands.fa-twitter
+
+  .content-card.content-card__form
+    h1.form-title Írj nekünk!
+    p.form-text Ha szeretnél asztalt foglalni, vagy csak kérdésed van, írj bátran.
+    form.form(action='/kapcsolat' method='POST')
+      label(for='name') 
+      input.form__input(type="text" id="name" name="name" placeholder="Név" required)
+      label(for='email') 
+      input.form__input(type="email" id="email" name="email" placeholder="Email" required)
+      label(for='message') 
+      textarea.form__input(id="message" name="message" placeholder="Üzenet..." required)
+      input.btn.btn-primary(type="submit" value= "Küldés") 

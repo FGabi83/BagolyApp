@@ -15,7 +15,7 @@ router.get('/itallap', catchErrors(drinkController.getDrinks));
 
 
 router.get('/kapcsolat', (req, res) => {
-    res.render('contact');
+    res.render('contactPage');
 }); 
 
 module.exports = router;

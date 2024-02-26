@@ -1,8 +1,9 @@
 @import 'partials/normalize.css';
 @import 'partials/base.css';
 @import 'partials/components.css';
-@import 'partials/layout.css';
 @import 'partials/table.css';
+@import 'partials/layout.css';
+
 /*@import 'partials/variables.css';
 @import 'partials/typography.css';
 @import 'partials/forms.css';

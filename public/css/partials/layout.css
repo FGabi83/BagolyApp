@@ -112,7 +112,7 @@
 header {
   padding: 0 10% 0 10%;
 }  
-  .content-card{
+  .content-card, .table-container {
     width:           90%;
     padding:         11%;
   } 
