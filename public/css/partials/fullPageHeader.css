@@ -8,9 +8,11 @@
       center / cover;
     background-blend-mode: multiply;
     display:     grid;
-    place-items: center;
+    /*place-items: center;*/
     z-index:     1;
   }
+
+    
   
   section,
   .first > * {
@@ -25,11 +27,13 @@
 
     .logo__fullpage {
         width: 50%;
+        place-self: center;
     }
 
   .first header {
     opacity:    0;
     visibility: hidden;
+    background: var(--secondary-color);
   }
 
 .second {
@@ -46,18 +50,20 @@
 /* JS STYLES */
 
 .is-sticky .first {
-    height:           var(--sticky-header-height);
-    background-color: var(--brand-color);
+    height:     var(--sticky-header-height);
+    background: var(--brand-color);
+    
   }
   
   .is-sticky .first .logo__fullpage {
     opacity: 0;
-    display: none;
+    visibility: hidden;
   }
   
   .is-sticky .first header {
     opacity: 1;
     visibility: visible;
+    background: var(--brand-color);
   }
   
   .is-sticky .second {
