@@ -16,6 +16,15 @@ html(lang="en")
               a.nav-item(href=item.slug) #{item.title}
           .nav-menu 
             i.fa.fa-bars
+      block messages
+      if locals.flashes
+        .flash-messages
+          - const categories = Object.keys(locals.flashes)
+          each category in categories
+            each message in flashes[category]
+              .flash(class=`flash--${category}`)
+                p.flash__text!= message 
+                button.flash__remove(onClick="this.parentElement.remove()") &times;
       main
         block content
       footer
@@ -23,5 +32,4 @@ html(lang="en")
 
 
     block scripts
-      script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
       script(src="/dist/App.bundle.js")

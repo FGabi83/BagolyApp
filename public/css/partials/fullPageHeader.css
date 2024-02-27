@@ -1,0 +1,66 @@
+.first {
+    position:    fixed;
+    top:         0;
+    left:        0;
+    width:       100%;
+    height:      var(--hero-height);
+    background:  url(https://assets.codepen.io/162656/mountain-full.jpg) no-repeat
+      center / cover;
+    background-blend-mode: multiply;
+    display:     grid;
+    place-items: center;
+    z-index:     1;
+  }
+  
+  section,
+  .first > * {
+    transition: all 1s;
+  }
+  
+  .first > * {
+    grid-area: 1/1;
+    padding:   0 20px;
+    width:     100%;
+  }
+
+    .logo__fullpage {
+        width: 50%;
+    }
+
+  .first header {
+    opacity:    0;
+    visibility: hidden;
+  }
+
+.second {
+  padding:         calc(var(--hero-height) + 2.5rem) 0 2.5rem 0;
+  display:         flex;
+  flex-flow:       row wrap;      
+  justify-content: center;
+  align-items:     center;
+  flex-grow:       1;
+  gap:             1.875rem;
+  width:           100%;
+}
+
+/* JS STYLES */
+
+.is-sticky .first {
+    height:           var(--sticky-header-height);
+    background-color: var(--brand-color);
+  }
+  
+  .is-sticky .first .logo__fullpage {
+    opacity: 0;
+    display: none;
+  }
+  
+  .is-sticky .first header {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .is-sticky .second {
+    padding-top: calc(var(--sticky-header-height) + 2.5rem);
+  }
+  

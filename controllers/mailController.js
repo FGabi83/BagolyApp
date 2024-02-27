@@ -28,17 +28,13 @@ const sendMail = async (req, res) => {
   `,
   };
 
-  try {
+  
     // Send the email
     await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully');
+    req.flash('success', 'Az üzeneted megkaptuk!'); // Send a success flash message
     res.redirect('/kapcsolat'); // Redirect to the contact page after successful submission
-  } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).send('Error sending email');
-  }
+  
 };
-
 module.exports = {
   sendMail,
 };

@@ -27,7 +27,7 @@
   /*--------------------------------*\
   * CONTENT LAYOUT
   \*--------------------------------*/
-  
+
   main {
     display:         flex;
     flex-flow:       row wrap;      
