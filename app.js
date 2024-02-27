@@ -1,7 +1,9 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const promisify = require('es6-promisify');
+const flash = require('connect-flash');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
@@ -24,9 +26,21 @@ app.use(express.urlencoded({ extended: true }));
 // populates req.cookies with any cookies that came along with the request
 app.use(cookieParser()); 
 
+//session to use flash messages
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 60000 }
+}));
+
+// The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
+app.use(flash());
+
 // pass variables to our templates + all requests
 app.use((req, res, next) => {
   res.locals.h = helpers;
+  res.locals.flashes = req.flash();
   res.locals.currentPath = req.path;
   next();
 });
