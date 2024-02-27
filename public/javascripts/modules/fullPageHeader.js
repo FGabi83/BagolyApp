@@ -5,7 +5,6 @@ function fullpageHeader() {
     window.addEventListener("scroll", () => {
       const currentScroll = window.scrollY;
       if (currentScroll > 0) {
-        alert(currentScroll);
         body.classList.add(toggleClass);
       } else {
         body.classList.remove(toggleClass);
