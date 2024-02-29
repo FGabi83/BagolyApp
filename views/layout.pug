@@ -10,10 +10,13 @@ html(lang="en")
     .container 
       block header
         header
-          img.logo(src="/images/icons/noborder_bagolypub_logo_sötét-25.svg" alt="logo")
+          a.logo(href="/")
+            img.logo(src="/images/icons/noborder_bagolypub_logo_sötét-25.svg" alt="logo")
           nav.nav
-            each item in h.menu
-              a.nav-item(href=item.slug) #{item.title}
+            block nav
+              each item in h.menu
+                a.nav-item(href=item.slug) #{item.title}
+
           .nav-menu 
             i.fa.fa-bars
       block messages

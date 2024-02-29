@@ -4,12 +4,11 @@ include mixins/_contact
 
 block header 
   section.first
-    img(src="/images/icons/logo.svg" alt="logo" class="logo__fullpage")
+    img(src="/images/icons/FEHER_bagolypub_logo-24.svg" alt="logo" class="logo__fullpage")
     header
       img.logo(src="/images/icons/noborder_bagolypub_logo_sötét-25.svg" alt="logo")
       nav.nav
-        each item in h.menu
-          a.nav-item(href=item.slug) #{item.title}
+        a.nav-item(href=`/itallap`) itallap
       .nav-menu 
         i.fa.fa-bars  
 

@@ -1,9 +1,9 @@
 @import 'partials/normalize.css';
 @import 'partials/base.css';
+@import 'partials/fullPageHeader.css';
 @import 'partials/components.css';
 @import 'partials/table.css';
 @import 'partials/flashes.css';
-@import 'partials/fullPageHeader.css';
 @import 'partials/layout.css';
 
 /*@import 'partials/variables.css';

@@ -89,12 +89,14 @@
     height:           5rem;
     display:          flex;
     flex-flow:        row nowrap;
-    justify-content:  space-between;  
+    justify-content:  space-evenly;  
     align-items:      center;
     background:       var(--brand-color) 0% 0% no-repeat padding-box;
     opacity:          1;
     padding-left:     15.3125rem;
     padding-right:    15.3125rem;
+    padding-top:      .0625rem!important;
+    padding-bottom:   .0625rem!important;
     position:         relative; 
     /*overflow:         hidden; */
   }
@@ -104,9 +106,18 @@
   
     .logo {
       height:         100%; 
-      margin-right:   1.875rem;
-      padding-bottom:  1px; /* to avoid the logo to be cut off */
-    }  
+      /*margin-right:   1.875rem;*/
+      border:          1px solid rgba(254, 238, 202, 0.5);
+      box-shadow:      1px 1px 1px rgba(254, 238, 202, 0.5);
+      border-radius:   50%;
+      
+    } 
+    
+      .logo:hover {
+        border:          1px solid rgba(254, 238, 202, 1);
+      box-shadow:      1px 1px 1px rgba(254, 238, 202, 1);
+        transition:    0.3s;
+      }
     
   
   /* Navbar */
@@ -116,8 +127,9 @@
       height:          5rem;
       display:         flex;
       flex-flow:       row nowrap;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items:     center;
+      margin-left:     1.875rem;
       
     }
   
