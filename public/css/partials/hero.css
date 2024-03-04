@@ -1,0 +1,21 @@
+
+
+.hero {
+  width: 100vw;
+  height: 40vh;
+  object-fit: cover;
+}
+
+.hero--main {
+  background:  url('../../images/photos/pub_interior.jpg') no-repeat center / cover; 
+  background-blend-mode: multiply;
+  height:          var(--hero-height);
+  display:         flex;
+  flex-flow:       column nowrap;
+  justify-content: center;
+  align-items:     center;
+  color:           var(--secondary-color);
+  padding:         0 0 2.5rem 0;
+  position:        relative;
+  top:             -2.5rem;
+}

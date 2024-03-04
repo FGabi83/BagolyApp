@@ -1,0 +1,17 @@
+.drink-card {
+  width:         100vw;
+  height:        auto;
+  padding-left:  1rem;
+  padding-right: 1rem;
+}
+
+.drink-card__dark {
+  padding-top:      2.5rem;
+  padding-bottom:   2.5rem;
+  background-color: var(--brand-color);
+  .table thead {
+    color:         var(--background-color);
+    border-bottom: 1px solid var(--background-color); 
+    width:         auto;
+  }
+}

@@ -1,10 +1,21 @@
 @import 'partials/normalize.css';
 @import 'partials/base.css';
-@import 'partials/fullPageHeader.css';
-@import 'partials/components.css';
-@import 'partials/table.css';
-@import 'partials/flashes.css';
 @import 'partials/layout.css';
+@import 'partials/buttons.css';
+@import 'partials/highlighted-text.css';
+@import 'partials/header.css';
+@import 'partials/flashes.css';
+@import 'partials/content-card.css';
+@import 'partials/contact.css';
+@import 'partials/drink-card.css';
+@import 'partials/table.css';
+@import 'partials/hero.css';
+@import 'partials/footer.css';
+
+
+
+
+
 
 /*@import 'partials/variables.css';
 @import 'partials/typography.css';

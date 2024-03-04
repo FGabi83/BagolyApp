@@ -1,16 +1,13 @@
 /*-----------------------------------*\
 * BASIC SETTINGS OF THE PAGE
 \*-----------------------------------*/
-/* 
-*1) fullpage header
-*/
 
 :root {
     --primary-color:        #BC956C; /* brand - Light brown */
     --secondary-color:      #FFFFFF; 
     --brand-color:          #042236; /* brand - Dark blue */ 
     --background-color:     #F4F3F5; /* light grey*/
-    --tertiary-color:       #FEEECA; /* brand - Light yellow - not in use */
+    --tertiary-color:       #FEEECA; /* light yellow */
     --font-size-regular:    1.25rem;
     --font-size-big:        2.5rem;
     --font-size-medium:     0.875rem;
@@ -19,12 +16,8 @@
     --line-height-big:      3.125rem;
     --line-height-medium:   1.125rem;
     --line-height-small:    0.9375rem;
-    --purple:             #9067c6; /*[1]*/
-    --yellow:             #ffbe0b; /*[1]*/
-    --white:              #fff;    /*[1]*/
-    --black:              #333;    /*[1]*/
-    --hero-height:          100vh;   /*[1]*/
-    --sticky-header-height: 5rem;    /*[1]*/
+    --hero-height:          75vh;   
+    
 } 
 
 /* normalize CSS */

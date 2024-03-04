@@ -1,0 +1,19 @@
+.content-card {
+    width:           33.75rem;
+    height:          40rem;
+    background:      var(--secondary-color) 0% 0% no-repeat padding-box;
+    border-radius:   .9375rem;
+    opacity:         1;
+    padding:         3.75rem;
+    display:         flex;
+    flex-flow:       column nowrap;
+    justify-content: space-between;
+    align-items:     flex-start;
+  }
+
+  @media (max-width: 600px) {
+    .content-card {
+      width:           90%;
+      padding:         11%;
+    } 
+  }

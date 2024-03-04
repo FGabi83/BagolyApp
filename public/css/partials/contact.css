@@ -1,0 +1,199 @@
+/*
+*Content card - Address.......map, address, phone, email, 
+*                             social media icons
+*
+*Content card - Contact-us....typography, form layout 
+*                             (input, textarea, button)
+*Mobile version 
+*/
+
+
+/*-----------------------------------*\
+* CONTENT - ADDRESS 
+\*-----------------------------------*/
+  
+/* Map */
+
+.map {
+  width:           26.25rem;
+  height:          17.5rem;
+  border-radius:   .9375rem;
+  object-fit:      cover;
+  border:          none;
+}
+
+/* Address */
+
+.address-text {
+  width:           26.25rem;
+  height:          4.0625rem;
+}
+
+  .address-title {
+    margin-bottom: 0.625rem;
+  }
+
+  .address {
+    font-size:     var(--font-size-medium);
+    line-height:   1.25rem; /* this line height is used only here, so it is not defined in the root */
+      
+  }
+
+
+/* Phone and email */
+
+.phone-email {
+  width:           26.25rem;
+  height:          2.5rem;
+  margin-bottom:   .625rem;
+}
+
+  .phone, .email {
+    display:       block;
+  }
+
+  .phone:hover, .email:hover {
+    text-decoration: underline;
+  }
+
+  .phone {
+    margin-bottom: 0.625rem;
+  }
+
+
+/* Social media icons */
+
+.icons-wrapper {
+  width:           26.25rem;
+  height:          2.5rem;
+  display:         flex;
+  flex-flow:       row nowrap;
+  justify-content: flex-start;
+}
+  
+  .icons {
+    display:          flex;
+    flex-flow:        row nowrap;
+    justify-content:  center;
+    align-items:      center;
+    width:            2.5rem;
+    height:           2.5rem;
+    background-color: var(--brand-color);
+    color:            var(--secondary-color);
+    border-radius:    50%;
+    margin-right:     0.625rem;
+  }
+
+  .icons:hover {
+    background-color: transparent;
+    color:            var(--brand-color);
+    border:           .125rem solid var(--brand-color);
+  }  
+
+    
+
+
+      
+/*-----------------------------------*\
+* CONTENT - CONTACT US 
+\*-----------------------------------*/
+
+.form-title {
+  font-size:      var(--font-size-big);
+  line-height:    var(--line-height-big);
+  font-weight:    bold;
+  margin:         0;
+}
+
+.form-text {
+  width:         26.25rem;
+  height:        5.625rem;
+  overflow:       hidden;
+}
+  
+  .form__input {
+    display:          block;
+    width:            26.25rem;
+    height:           3.125rem;
+    margin-bottom:    .9375rem;
+    padding:          1rem 1.5rem 1rem 1.5rem;
+    background-color: var(--background-color);
+    border:           0;
+    font-family:      'Montserrat', sans-serif;
+    font-size:        var(--font-size-medium);
+    line-height:      var(--line-height-medium);
+    font-weight:      bold;
+  }
+
+    .form__input::placeholder {
+      color:          var(--primary-color);
+      opacity:        .25;
+    }
+
+    .form__input:focus {
+      outline:        none ;
+      border-bottom:  .1875rem solid var(--brand-color);
+    }
+
+    .form__input:focus::placeholder {
+      opacity: 1;
+    }
+
+  
+  #message {
+    height:           9.375rem;
+    resize:           none;   
+  }
+
+
+  .form > .btn-primary {
+    width:           26.25rem;
+  }
+
+
+
+
+/*MOBILE VERSION*/
+
+@media (max-width: 600px) {
+  .map {
+    width:        100%;
+    height:       43.75%;
+  }
+  .address-text {
+    width:        100%;
+    height:       10%;
+  }
+
+  .form-title {
+    font-size:     var(--font-size-regular);
+    line-height:   var(--line-height-regular);
+    margin-bottom: 1rem;
+  }
+  .form-text {
+    width:         100%;
+    height:        auto;
+    overflow:      auto;
+    font-size:     var(--font-size-medium);
+    line-height:   var(--line-height-medium);
+  }
+  .form {
+    width:           100%;
+    height:          86%;
+    display:         flex;
+    flex-flow:       column nowrap;
+    justify-content: space-evenly;
+    align-items:     center;
+  }
+    
+    .form__input {
+      width:         100%;
+      height:        7.8125%;
+    }
+    #message {
+      height:        23.4375%;
+    }
+    .form > .btn-primary {
+      width:         100%;
+    }
+}

@@ -2,10 +2,9 @@
     position:    fixed;
     top:         0;
     left:        0;
-    width:       100%;
+    width:       100vw;
     height:      var(--hero-height);
-    background:  url(https://assets.codepen.io/162656/mountain-full.jpg) no-repeat
-      center / cover;
+    background:  url('../../images/photos/pub_interior.jpg') no-repeat center / cover;
     background-blend-mode: multiply;
     display:     grid;
     /*place-items: center;*/
@@ -21,14 +20,15 @@
   
   .first > * {
     grid-area: 1/1;
-    padding:   0 20px;
-    width:     100%;
+    /*padding:   0 20px;*/
+    width:     100vw;
+    
   }
-
+  
     .logo__fullpage {
-        width: 25%;
-        place-self: center;
-    }
+      width: 40%;
+      place-self: center;
+     }
 
   .first header {
     opacity:    0;
@@ -53,6 +53,7 @@
     height:     var(--sticky-header-height);
     background: var(--brand-color);
     
+    
   }
   
   .is-sticky .first .logo__fullpage {
@@ -64,6 +65,9 @@
     opacity: 1;
     visibility: visible;
     background: var(--brand-color);
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100vw;
   }
   
   .is-sticky .second {

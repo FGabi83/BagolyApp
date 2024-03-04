@@ -1,3 +1,8 @@
+.drinks--background {
+  background: url('../../images/photos/onebeer.jpg') no-repeat center / cover;
+}
+
+
 /*
 * 1) Dark blue separator under the table header
 */
@@ -7,7 +12,11 @@
   border-radius: .9375rem;
   padding:       1rem;
   width:         40%;
+  opacity:       .8;
 }
+
+ 
+
 
   .table {
     table-layout:    auto;
@@ -37,3 +46,12 @@
       padding:         .3125rem;
       width:           auto;
     }
+
+/*MOBILE VERSION*/
+
+@media (max-width: 900px) {
+  .table-container {
+    width:           90%;
+    padding:         11%;
+  } 
+}

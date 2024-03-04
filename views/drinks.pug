@@ -1,50 +1,49 @@
 extends layout
 
-block nav 
-  a.nav-item(href=`/kapcsolat`) kapcsolat
 
 block content
-  .table-container    
-    table.table
-      caption.table-title Csapolt Sörök
-      thead.table-header
-        td Megnevezés
-        td Pohár 
-        td Korsó 
-      each drink in brewedBeers
-        tr 
-          td= drink.name
-          td #{drink.smallPrice} Ft
-          td #{drink.largePrice} Ft
-  .table-container     
-    table.table
-      caption.table-title Üveges Sörök
-      thead.table-header
-        td Megnevezés
-        td Ár 
-      each drink in bottledBeers
-        tr 
-          td= drink.name
-          td #{drink.smallPrice} Ft
-  .table-container      
-    table.table
-      caption.table-title Rövid Italok
-      thead.table-header
-        td Megnevezés
-        td 2 cl 
-        td 4 cl
-      each drink in shots
-        tr 
-          td= drink.name
-          td #{drink.smallPrice} Ft
-          td #{drink.largePrice} Ft
-  .table-container     
-    table.table
-      caption.table-title Üditők
-      thead.table-header
-        td Megnevezés
-        td Ár 
-      each drink in softDrinks
-        tr 
-          td= drink.name
-          td #{drink.smallPrice} Ft       
+  main.drinks--background 
+    .table-container
+      table.table
+        caption.table-title Csapolt Sörök
+        thead.table-header
+          td Megnevezés
+          td Pohár 
+          td Korsó 
+        each drink in brewedBeers
+          tr 
+            td= drink.name
+            td #{drink.smallPrice} Ft
+            td #{drink.largePrice} Ft
+    .table-container     
+      table.table
+        caption.table-title Üveges Sörök
+        thead.table-header
+          td Megnevezés
+          td Ár 
+        each drink in bottledBeers
+          tr 
+            td= drink.name
+            td #{drink.smallPrice} Ft
+    .table-container  
+      table.table
+        caption.table-title Rövid Italok
+        thead.table-header
+          td Megnevezés
+          td 2 cl 
+          td 4 cl
+        each drink in shots
+          tr 
+            td= drink.name
+            td #{drink.smallPrice} Ft
+            td #{drink.largePrice} Ft
+    .table-container   
+      table.table
+        caption.table-title Üditők
+        thead.table-header
+          td Megnevezés
+          td Ár 
+        each drink in softDrinks
+          tr 
+            td= drink.name
+            td #{drink.smallPrice} Ft       

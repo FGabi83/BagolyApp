@@ -1,0 +1,21 @@
+footer {
+    height:           6.25rem;
+    display:          flex;
+    flex-flow:        row nowrap;
+    justify-content:  center;  
+    align-items:      center;
+    background:       var(--primary-color) 0% 0% no-repeat padding-box;
+    opacity:          1;
+  }
+  
+    .footer-text {
+      width:           69.375rem;
+      text-align:      center;
+      font-size:       var(--font-size-small);
+      line-height:     var(--line-height-small);
+      letter-spacing:  0.15rem;
+      text-transform:  uppercase;
+      color:           var(--background-color);
+    }
+  
+      

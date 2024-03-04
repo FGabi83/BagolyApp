@@ -1,0 +1,32 @@
+.btn {
+      
+    display:        inline-block;
+    width:          10rem;
+    height:         3.125rem;
+    border:         0.125rem solid;;
+    border-radius:  1.5rem;
+    opacity:        1;
+    padding:        1.09375rem;
+    font-size:      var(--font-size-small);
+    font-weight:    bold;
+    line-height:    var(--line-height-small);
+    text-align:     center;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+  }
+  
+  .btn:hover {
+    transition:       0.3s;
+  }
+  
+    .btn-primary {
+      background:   var(--brand-color) 0% 0% no-repeat padding-box;
+      border-color: var(--brand-color);
+      color:        var(--secondary-color);
+    }
+  
+    .btn-primary:hover {
+      background:   var(--secondary-color);
+      border-color: var(--brand-color);
+      color:        var(--brand-color);
+    }

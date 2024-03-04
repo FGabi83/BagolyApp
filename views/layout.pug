@@ -10,7 +10,7 @@ html(lang="en")
     .container 
       block header
         header
-          a.logo(href="/")
+          a.logo--wrapper(href="/")
             img.logo(src="/images/icons/noborder_bagolypub_logo_sötét-25.svg" alt="logo")
           nav.nav
             block nav
@@ -19,6 +19,7 @@ html(lang="en")
 
           .nav-menu 
             i.fa.fa-bars
+      block hero
       block messages
       if locals.flashes
         .flash-messages
@@ -28,8 +29,9 @@ html(lang="en")
               .flash(class=`flash--${category}`)
                 p.flash__text!= message 
                 button.flash__remove(onClick="this.parentElement.remove()") &times;
-      main
-        block content
+      block content
+        main
+        
       footer
         p.footer-text © 2024 Copyright <span class="highlighted-text"> Bagoly Pub </span> / Design by <span class="highlighted-text"> Simple Works </span>
 

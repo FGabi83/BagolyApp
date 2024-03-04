@@ -5,7 +5,6 @@
 *
 *Main.................over layout of the content
 *
-*Mobile layout........sandvich menu
 \*--------------------------------*/
 
 
@@ -17,7 +16,7 @@
     display:        flex;
     flex-flow:      column nowrap;
     min-height:     100vh;
-    width:          100%;
+    width:          100vw;
   }
   
   
@@ -35,126 +34,7 @@
     align-items:     center;
     flex-grow:       1;
     gap:             1.875rem;
-    width:           100%;
-    padding:         2.5rem 0 2.5rem 0;
+    width:           100vw;
+    padding:         7.5rem 0 2.5rem 0;
 }
 
-
-
-
-
-/*--------------------------------*\
-  * MOBILE LAYOUT
-\*--------------------------------*/
-
-/*Sandvich menu is not shown on desktop */
-/* 
-* 1) white line separating the menu items 
-* 2) hover effect on mobile version not needed
-*/
-
-@media (max-width: 991px) {
- 
-  .nav {
-    display:          none;
-  }
-
-
-  .nav.show { 
-    display:          flex;
-    flex-flow:        column nowrap;
-    height:           auto;
-    width:            90%;
-    /*gap:              1.875rem; /*[1]*/
-    background-color: var(--brand-color);
-    color:            var(--secondary-color);
-    opacity:          1;
-    z-index:          100;
-    position:         absolute;
-    top:              5rem;
-    left:             5%;
-    /*padding-bottom:   1.875rem; /*[1]*/
-    /*padding-top:      1.875rem; /*[1]*/
-    border-radius:    0 0 .3125rem .3125rem;
-  }
-
-    .nav.show > .nav-item { /*[1]*/
-      border-bottom: 1px solid rgba(255, 255, 255, 0.65);
-      line-height:   2.81rem; 
-      width:         100%;
-      text-align:    center;
-    }
-
-        
-    .nav.show > .nav-item:hover::after { /* [2] */
-      display: none;
-    }
-     
-  
-  .nav-menu {
-    display:          block;
-    opacity:          .65;
-  }
-
-  .nav-menu:hover {  /* [2] */
-    opacity:          .65;
-    }
-
-  .nav-menu.highlight {
-    opacity:          1;
-  }
-}
-
-/* Content size adjusted to mobile version */
-
-@media (max-width: 600px) {
-
-header {
-  padding: 0 10% 0 10%;
-}  
-  .content-card, .table-container {
-    width:           90%;
-    padding:         11%;
-  } 
-
-    .map {
-      width:        100%;
-      height:       43.75%;
-    }
-    .address-text {
-      width:        100%;
-      height:       10%;
-    }
-
-    .form-title {
-      font-size:     var(--font-size-regular);
-      line-height:   var(--line-height-regular);
-      margin-bottom: 1rem;
-    }
-    .form-text {
-      width:         100%;
-      height:        auto;
-      overflow:      auto;
-      font-size:     var(--font-size-medium);
-      line-height:   var(--line-height-medium);
-    }
-    .form {
-      width:           100%;
-      height:          86%;
-      display:         flex;
-      flex-flow:       column nowrap;
-      justify-content: space-evenly;
-      align-items:     center;
-    }
-    
-      .form__input {
-        width:         100%;
-        height:        7.8125%;
-      }
-      #message {
-        height:        23.4375%;
-      }
-      .form > .btn-primary {
-        width:         100%;
-      }
-}
