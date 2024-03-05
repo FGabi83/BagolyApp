@@ -9,6 +9,7 @@
 .hero--main {
   background:  url('../../images/photos/pub_interior.jpg') no-repeat center / cover; 
   background-blend-mode: multiply;
+  background-color: rgba(4, 34, 54, .2);
   height:          var(--hero-height);
   display:         flex;
   flex-flow:       column nowrap;
@@ -19,3 +20,5 @@
   position:        relative;
   top:             -2.5rem;
 }
+
+  

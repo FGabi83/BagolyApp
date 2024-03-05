@@ -11,7 +11,7 @@ block content
           td Pohár 
           td Korsó 
         each drink in brewedBeers
-          tr 
+          tr.table-items 
             td= drink.name
             td #{drink.smallPrice} Ft
             td #{drink.largePrice} Ft
@@ -22,7 +22,7 @@ block content
           td Megnevezés
           td Ár 
         each drink in bottledBeers
-          tr 
+          tr.table-items 
             td= drink.name
             td #{drink.smallPrice} Ft
     .table-container  
@@ -33,7 +33,7 @@ block content
           td 2 cl 
           td 4 cl
         each drink in shots
-          tr 
+          tr.table-items 
             td= drink.name
             td #{drink.smallPrice} Ft
             td #{drink.largePrice} Ft
@@ -44,6 +44,6 @@ block content
           td Megnevezés
           td Ár 
         each drink in softDrinks
-          tr 
+          tr.table-items 
             td= drink.name
             td #{drink.smallPrice} Ft       

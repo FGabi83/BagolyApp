@@ -5,6 +5,7 @@
     width:       100vw;
     height:      var(--hero-height);
     background:  url('../../images/photos/pub_interior.jpg') no-repeat center / cover;
+    
     background-blend-mode: multiply;
     display:     grid;
     /*place-items: center;*/

@@ -1,9 +1,7 @@
 .highlighted-text {
-    font-size:       var(--font-size-small);
-    line-height:     var(--line-height-small);
-    letter-spacing:  0.15rem;
-    text-transform:  uppercase;
-    color:           var(--brand-color);
-    font-weight:     bold;
-    opacity:         1;
-  }
+  letter-spacing:  0.15rem;
+  text-transform:  uppercase;
+  color:           var(--brand-color);
+  font-weight:     bold;
+  opacity:         1;
+}

@@ -19,34 +19,31 @@
   height:          17.5rem;
   border-radius:   .9375rem;
   object-fit:      cover;
-  border:          none;
+  border:          1px solid var(--background-color);
+  
 }
 
-/* Address */
-
-.address-text {
+.inner-devider {
   width:           26.25rem;
-  height:          4.0625rem;
+  height:          auto;
+  display:         flex;
+  flex-flow:       row nowrap;
+  justify-content: space-between;
+  align-items:     flex-start;
+  margin-bottom:   .5rem;
 }
 
-  .address-title {
-    margin-bottom: 0.625rem;
+  .contact-wrapper {
+    display:         flex;
+    flex-flow:       column nowrap;
+    justify-content: space-between;
+    align-items:     space-between;
+    gap:             .5rem;
   }
 
-  .address {
-    font-size:     var(--font-size-medium);
-    line-height:   1.25rem; /* this line height is used only here, so it is not defined in the root */
-      
-  }
 
 
 /* Phone and email */
-
-.phone-email {
-  width:           26.25rem;
-  height:          2.5rem;
-  margin-bottom:   .625rem;
-}
 
   .phone, .email {
     display:       block;
@@ -56,19 +53,19 @@
     text-decoration: underline;
   }
 
-  .phone {
-    margin-bottom: 0.625rem;
-  }
+  
 
 
 /* Social media icons */
 
 .icons-wrapper {
-  width:           26.25rem;
-  height:          2.5rem;
+  /*width:           50%;*/
+  height:          2rem;
   display:         flex;
   flex-flow:       row nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
+  gap:             .625rem;
+  
 }
   
   .icons {
@@ -76,12 +73,12 @@
     flex-flow:        row nowrap;
     justify-content:  center;
     align-items:      center;
-    width:            2.5rem;
-    height:           2.5rem;
+    width:            2rem;
+    height:           2rem;
     background-color: var(--brand-color);
     color:            var(--secondary-color);
+    opacity:          .8;
     border-radius:    50%;
-    margin-right:     0.625rem;
   }
 
   .icons:hover {
@@ -98,18 +95,22 @@
 * CONTENT - CONTACT US 
 \*-----------------------------------*/
 
-.form-title {
-  font-size:      var(--font-size-big);
-  line-height:    var(--line-height-big);
-  font-weight:    bold;
-  margin:         0;
+.form {
+  display:       flex;
+  flex-flow:     column nowrap;
+  
 }
 
 .form-text {
   width:         26.25rem;
   height:        5.625rem;
-  overflow:       hidden;
+  overflow:      hidden;
 }
+
+  .form label {
+    /*color: var(--brand-color);*/
+    text-transform: uppercase;
+  }
   
   .form__input {
     display:          block;
@@ -119,9 +120,7 @@
     padding:          1rem 1.5rem 1rem 1.5rem;
     background-color: var(--background-color);
     border:           0;
-    font-family:      'Montserrat', sans-serif;
-    font-size:        var(--font-size-medium);
-    line-height:      var(--line-height-medium);
+    font-family:      'Jost', sans-serif;
     font-weight:      bold;
   }
 
@@ -160,30 +159,24 @@
     width:        100%;
     height:       43.75%;
   }
-  .address-text {
-    width:        100%;
-    height:       10%;
-  }
 
-  .form-title {
-    font-size:     var(--font-size-regular);
-    line-height:   var(--line-height-regular);
-    margin-bottom: 1rem;
+  .inner-devider {
+    width:        100%;
+    gap:          1rem;
   }
+  
+  
   .form-text {
     width:         100%;
     height:        auto;
     overflow:      auto;
-    font-size:     var(--font-size-medium);
-    line-height:   var(--line-height-medium);
+    
   }
   .form {
     width:           100%;
     height:          86%;
-    display:         flex;
-    flex-flow:       column nowrap;
     justify-content: space-evenly;
-    align-items:     center;
+    
   }
     
     .form__input {
@@ -196,4 +189,16 @@
     .form > .btn-primary {
       width:         100%;
     }
+}
+
+@media (max-width: 472px) {
+  .inner-devider {
+    flex-flow:     column nowrap;
+    gap:           1rem;
+  }
+
+  .phone, .email {
+    font-weight: 500;
+    text-transform: none;
+  }
 }

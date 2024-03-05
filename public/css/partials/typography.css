@@ -1,0 +1,97 @@
+html {
+  font-size:        16px;
+  color:            var(--primary-color);
+}
+
+  
+  body {
+    width:       100%;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    text-align:  left;
+    font-size:   var(--font-size-regular);
+    line-height: var(--line-height-regular);
+  }
+
+
+    a {
+      text-decoration: none;
+    }
+
+    .title {
+      font-family:   'Josefin Sans', sans-serif;
+      font-weight:    bold;
+      font-size:      var(--font-size-big);
+      line-height:    var(--line-height-big);
+      margin:         0;
+      margin-bottom:  .5rem;
+      color:          var(--brand-color);
+    }
+
+      .title__extra {
+        font-size:      calc(2 * var(--font-size-big)); 
+        line-height:    calc(2 * var(--line-height-big));
+        text-transform: uppercase;
+        color:          var(--secondary-color);
+      }
+
+    .subtitle {
+      font-size:     var(--font-size-medium);
+      line-height:   var(--line-height-medium);
+      color:         var(--brand-color);
+      margin-top:    0.625rem;
+      margin-bottom: 0.625rem; 
+    }
+
+    .text--regular__responsive {
+      font-size:   var(--font-size-regular);
+      line-height: var(--line-height-regular);
+    }
+
+      .text__extra {
+        font-size:   calc(1.5 * var(--font-size-regular)); 
+        line-height: calc(1.5 * var(--line-height-regular));
+        text-align:  center;
+        width:       50%;
+      }
+
+    .text--medium {
+      font-size:   var(--font-size-medium);
+      line-height: var(--line-height-medium);
+    }
+
+    .text--small {
+      font-size:   var(--font-size-small);
+      line-height: var(--line-height-small);
+    }
+
+    .text--nav {
+      font-family:    'Josefin Sans', sans-serif;
+      font-size:      var(--font-size-small);
+      line-height:    var(--line-height-small);
+      font-weight:    bold;
+      text-transform: uppercase;
+      letter-spacing: 0.15rem;
+      color:          var(--tertiary-color);
+    }
+
+    
+
+
+
+
+@media (max-width: 600px) {
+  .title {
+    font-size:   var(--font-size-regular);
+    line-height: var(--line-height-regular);
+  }
+    .title__extra {
+      font-size:   calc(2 * var(--font-size-regular)); 
+      line-height: calc(2 * var(--line-height-regular));
+    }
+  
+  .text--regular__responsive {
+    font-size:   var(--font-size-medium);
+    line-height: var(--line-height-medium);
+  }
+}
