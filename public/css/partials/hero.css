@@ -1,24 +1,26 @@
 
-
+/* Hero picture */
 .hero {
   width: 100vw;
   height: 40vh;
   object-fit: cover;
 }
 
+/* Hero background */
+
 .hero--main {
   background:  url('../../images/photos/pub_interior.jpg') no-repeat center / cover; 
   background-blend-mode: multiply;
-  background-color: rgba(4, 34, 54, .2);
-  height:          var(--hero-height);
-  display:         flex;
-  flex-flow:       column nowrap;
-  justify-content: center;
-  align-items:     center;
-  color:           var(--secondary-color);
-  padding:         0 0 2.5rem 0;
-  position:        relative;
-  top:             -2.5rem;
+  background-color:   rgba(var(--brand-color-rgb), .2);
+  height:             var(--hero-height);
+  display:            flex;
+  flex-flow:          column nowrap;
+  justify-content:    center;
+  align-items:        center;
+  color:              var(--secondary-color);
+  padding:            0 0 2.5rem 0;
+  position:           relative;
+  top:                -2.5rem;
 }
 
   

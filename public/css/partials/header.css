@@ -63,6 +63,7 @@ header {
     align-items:     center;
     gap:             1rem;
     margin-left:     3rem;
+    
   }
   
     .nav--item {
@@ -90,10 +91,17 @@ header {
         opacity:          1;
         transition:       0.3s;
       }
+
+    /*Active link is highlighted*/
+  
+      .nav--item__active {
+        opacity:          1;
+      }
   
 
   /*Sandvich menu is not shown on desktop */
-
+  
+  
   .nav-menu {
     display:         none;
     color:           var(--tertiary-color);
@@ -111,28 +119,27 @@ header {
 */
 
     @media (max-width: 991px) {
- 
+  
     .nav {
-      display:          none;
+      display:         none;
+      
     }
+    
     
     
     .nav.show { 
       display:          flex;
       flex-flow:        column nowrap;
-      height:           auto;
       width:            90%;
-      /*gap:              1.875rem; /*[1]*/
+      height:           auto;
+      opacity:          1;
+      position:         absolute;
+      top:              var(--header-height);
+      left:             5%;
       background-color: var(--brand-color);
       color:            var(--secondary-color);
-      opacity:          1;
       z-index:          100;
-      position:         absolute;
-      top:              5rem;
-      left:             5%;
       margin-left:      0; /*desktop version has 3rem margin-left*/
-      /*padding-bottom:   1.875rem; /*[1]*/
-      /*padding-top:      1.875rem; /*[1]*/
       border-radius:    0 0 .3125rem .3125rem;
       }
     
@@ -143,6 +150,10 @@ header {
         text-align:    center;
         
       }
+
+        .nav.show .nav--item__last {
+          border-bottom: none;
+        }
     
             
         .nav.show > .nav--item:hover::after { /* [2] */

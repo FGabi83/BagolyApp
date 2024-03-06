@@ -9,7 +9,7 @@ const mailController = require('../controllers/mailController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { title: 'Kezdőlap' });
 });
 
 
@@ -17,7 +17,7 @@ router.get('/itallap', catchErrors(drinkController.getDrinks));
 
 
 router.get('/kapcsolat', (req, res) => {
-    res.render('contactPage');
+    res.render('contactPage', { title: 'Kapcsolat' });
 }); 
 
 router.post('/kapcsolat', catchErrors(mailController.sendMail));

@@ -33,6 +33,7 @@ html {
         line-height:    calc(2 * var(--line-height-big));
         text-transform: uppercase;
         color:          var(--secondary-color);
+        text-align:     center;
       }
 
     .subtitle {
@@ -86,12 +87,18 @@ html {
     line-height: var(--line-height-regular);
   }
     .title__extra {
-      font-size:   calc(2 * var(--font-size-regular)); 
-      line-height: calc(2 * var(--line-height-regular));
+      font-size:   calc(1.5 * var(--font-size-big)); 
+      line-height: calc(1.5 * var(--line-height-big));
     }
   
   .text--regular__responsive {
     font-size:   var(--font-size-medium);
     line-height: var(--line-height-medium);
+  }
+
+  .text__extra {
+    font-size:   var(--font-size-regular); 
+    line-height: var(--line-height-regular);
+    
   }
 }

@@ -1,5 +1,6 @@
 function dropdownMenu() {
   const navMenu = document.querySelector(".nav-menu");
+  const navWrapper = document.querySelector(".nav--wrapper");
   const dropdownNavbar = document.querySelector(".nav");
   
   navMenu.addEventListener("click", () => { 

@@ -4,8 +4,11 @@
 
 :root {
     --primary-color:        #BC956C; /* brand - Light brown */
-    --secondary-color:      #FFFFFF; 
+    --primary-color-rgb:    188, 149, 108;
+    --secondary-color:      #FFFFFF; /* white */
+    --secondary-color-rgb:  255, 255, 255;
     --brand-color:          #042236; /* brand - Dark blue */ 
+    --brand-color-rgb:      4, 34, 54;
     --background-color:     #F4F3F5; /* light grey*/
     --tertiary-color:       #FEEECA; /* light yellow */
     --font-size-regular:    1.25rem;

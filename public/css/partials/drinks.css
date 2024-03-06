@@ -8,7 +8,7 @@
 */
 
 .table-container {
-  background:    rgba(255, 255, 255, .9);
+  background-color:    rgba(var(--secondary-color-rgb), .9);
   border-radius: .9375rem;
   padding:       1rem;
   width:         40%;
@@ -19,7 +19,7 @@
 
 
   .table {
-    color:         rgba(4, 34, 54, 1);
+    color:           rgba(var(--brand-color-rgb), 1);
     table-layout:    auto;
     width:           100%;
     height:          auto;
@@ -30,7 +30,6 @@
 
     .table-title {
       width:          100%;
-      /*color:          var(--primary-color);*/
       text-transform: uppercase;
       font-weight:    bold;
       margin-bottom:  1rem;
@@ -38,8 +37,8 @@
     }
      
     .table thead {
-      color:         rgba(4, 34, 54, 1);
-      border-bottom: 1px solid rgba(188, 149, 108, 1); /* 1 */
+      color:         rgba(var(--brand-color-rgb), 1);
+      border-bottom: 1px solid rgba(var(--primary-color-rgb), 1); /* 1 */
       width:         auto;
       opacity:     1;
     }
