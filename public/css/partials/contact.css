@@ -47,8 +47,9 @@
 
   .phone, .email {
     display:       block;
+    text-transform: none;
   }
-
+  
   .phone:hover, .email:hover {
     text-decoration: underline;
   }
@@ -199,6 +200,6 @@
 
   .phone, .email {
     font-weight: 500;
-    text-transform: none;
+    
   }
 }
