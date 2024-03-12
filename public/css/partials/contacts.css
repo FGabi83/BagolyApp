@@ -19,11 +19,11 @@
 
   .map {
     width:           min(100%, 563px);
-    height:          100%;
+    height:          80%;
     border-radius:   2px;
     object-fit:      cover;
     border:          1px solid var(--background-color);
-    place-self:      end;
+    justify-self:      end;
     
   }
 
