@@ -1,39 +1,25 @@
-mixin contactPage()
+mixin contact()
   .content-card
-    h1.title Térj be hozzánk egy sörre!
-    iframe.map(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d672.9896116822155!2d19.048736669601567!3d47.568596903052125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741d99a37908d43%3A0xa9f86a77f0c7ce9!2zQnVkYXBlc3QsIFLDs21haSB0w6lyIDEsIDEwMzE!5e0!3m2!1shu!2shu!4v1708427020623!5m2!1shu!2shu", allowfullscreen="", loading="lazy", referrerpolicy="no-referrer-when-downgrade")
-    .inner-devider
-      .contact-wrapper
-        h6.highlighted-text.subtitle Elérhetőségek
-        p.text--medium 1031 Budapest, Római tér 2.
-        p
-          a.highlighted-text.text--small.phone(href="tel:1234567890") (123) 456-7890
-          a.highlighted-text.text--small.email(href="mailto:info@bagolypub.hu") info@bagolypub.hu
-      .open
-        h6.highlighted-text.subtitle Nyitvatartás 
-        p.text--medium
-          each time in ['Hétfőtől - Csütörtökig: 16:00 - 23:00', 'Péntektől - Szombatig: 16:00 - 01:00', 'Vasárnap: 16:00 - 23:00']
-            = time
-            br
+    iframe.map(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2691.9649439410414!2d19.04688831226993!3d47.56847049048922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741d99a3619ea3b%3A0x3dd714e548e05fb9!2zQnVkYXBlc3QsIFLDs21haSB0w6lyIDIsIDEwMzE!5e0!3m2!1shu!2shu!4v1710161436010!5m2!1shu!2shu" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+    .contact-wrapper
+      h6.highlighted-text.title Elérhetőségek
+      p 1031 Budapest, Római tér 2.
+      p
+        a.highlighted-text.phone(href="tel:1234567890") (123) 456-7890
+        a.highlighted-text.email(href="mailto:info@bagolypub.hu") info@bagolypub.hu
+      .icons-wrapper
+        a(href="https://www.facebook.com" target="_blank")
+          i.icons.fa-brands.fa-facebook-f
+        a(href="https://www.instagram.com" target="_blank")
+          i.icons.fa-brands.fa-instagram
+    .open-wrapper
+      h6.highlighted-text.title Nyitvatartás 
+      p
+        each time in ['Hétfőtől - Csütörtökig: 16:00 - 23:00', 'Péntektől - Szombatig: 16:00 - 01:00', 'Vasárnap: 16:00 - 23:00']
+          = time
+          br
 
 
-    div.icons-wrapper
-      a(href="https://www.facebook.com" target="_blank")
-        i.icons.fa-brands.fa-facebook-f
-      a(href="https://www.instagram.com" target="_blank")
-        i.icons.fa-brands.fa-instagram
+    
       
-
-  .content-card.content-card__form
-    h1.title Írj nekünk!
-    p.text--regular__responsive.form-text Ha szeretnél asztalt foglalni, vagy csak kérdésed van, írj bátran.
-    form.form(action='/kapcsolat' method='POST')
-      label.text--medium(for="name") Név
-      input.form__input.text--medium(type="text" id="name" name="name" placeholder="Név" required)
-      label.text--medium(for="email") Email
-      input.form__input.text--medium(type="email" id="email" name="email" placeholder="Email" required)
-      label.text--medium(for="subject") Tárgy
-      input.form__input.text--medium(type="text" id="subject" name="subject" placeholder="Tárgy" required) 
-      label.text--medium(for="message") Üzenet
-      textarea.form__input.text--medium(id="message" name="message" placeholder="Üzenet..." required)
-      input.btn.btn-primary(type="submit" value= "Küldés") 
+  

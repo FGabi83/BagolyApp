@@ -5,7 +5,7 @@ html {
 
   
   body {
-    width:       100%;
+    width:       100vw;
     font-family: "Jost", sans-serif;
     font-weight: 400;
     text-align:  left;
@@ -37,18 +37,14 @@ html {
       }
 
     .subtitle {
-      font-size:     var(--font-size-medium);
-      line-height:   var(--line-height-medium);
+      font-size:     calc(var(--font-size-regular) * 1.5);
+      line-height:   calc(var(--line-height-regular) * 1.5);
       color:         var(--brand-color);
       margin-top:    0.625rem;
       margin-bottom: 0.625rem; 
     }
 
-    .text--regular__responsive {
-      font-size:   var(--font-size-regular);
-      line-height: var(--line-height-regular);
-    }
-
+   
       .text__extra {
         font-size:   calc(1.5 * var(--font-size-regular)); 
         line-height: calc(1.5 * var(--line-height-regular));
@@ -78,13 +74,13 @@ html {
 
     
 
-
+/*
 
 
 @media (max-width: 600px) {
   .title {
-    font-size:   var(--font-size-regular);
-    line-height: var(--line-height-regular);
+    font-size:   calc(var(--font-size-big) * .8);
+    line-height: calc(var(--line-height-big) * .8);
   }
     .title__extra {
       font-size:   calc(1.5 * var(--font-size-big)); 
@@ -92,8 +88,8 @@ html {
     }
   
   .text--regular__responsive {
-    font-size:   var(--font-size-medium);
-    line-height: var(--line-height-medium);
+    font-size:   calc(var(--font-size-regular__responsive) * .8);
+    line-height: calc(var(--line-height-regular__responsive) * .8);
   }
 
   .text__extra {
@@ -102,3 +98,16 @@ html {
     
   }
 }
+
+@media (max-width: 470px) {
+  .title {
+    font-size: var(--font-size-regular);
+    line-height: var(--line-height-regular);
+  }
+  .text--regular__responsive {
+    font-size:   var(--font-size-medium);
+    line-height: var(--line-height-medium);
+  }  
+}
+
+*/

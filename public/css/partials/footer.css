@@ -1,11 +1,13 @@
 footer {
-    height:           6.25rem;
+    height:           var(--footer-height);
+    width:            100vw;
     display:          flex;
     flex-flow:        row nowrap;
     justify-content:  center;  
     align-items:      center;
     background:       var(--primary-color) 0% 0% no-repeat padding-box;
     opacity:          1;
+    
   }
   
     .footer-text {
@@ -16,4 +18,5 @@ footer {
       color:           var(--background-color);
     }
   
-      
+
+    

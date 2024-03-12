@@ -1,17 +1,25 @@
 .drinks--background {
   background: url('../../images/photos/onebeer.jpg') no-repeat center / cover;
+  margin-top: var(--header-height);
 }
 
+
+  .drinks-wrapper {
+    width:     90%;
+    display:   flex;
+    flex-flow: row wrap;
+    gap:       2rem;
+  }
 
 /*
 * 1) Dark blue separator under the table header
 */
 
 .table-container {
-  background-color:    rgba(var(--secondary-color-rgb), .9);
-  border-radius: .9375rem;
-  padding:       1rem;
-  width:         40%;
+  background-color:  rgba(var(--secondary-color-rgb), .9);
+  border-radius:     2px;
+  padding:           1rem;
+  width:             40%;
   
 }
 
@@ -40,7 +48,7 @@
       color:         rgba(var(--brand-color-rgb), 1);
       border-bottom: 1px solid rgba(var(--primary-color-rgb), 1); /* 1 */
       width:         auto;
-      opacity:     1;
+      opacity:       1;
     }
 
     .table .table-items {
@@ -52,6 +60,10 @@
 /*MOBILE VERSION*/
 
 @media (max-width: 900px) {
+  .drinks-wrapper {
+    width: 100%;
+    padding: 0 10% 0 10%;
+  }
   .table-container {
     width:           90%;
     padding:         11%;

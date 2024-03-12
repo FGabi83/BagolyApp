@@ -11,16 +11,19 @@
     --brand-color-rgb:      4, 34, 54;
     --background-color:     #F4F3F5; /* light grey*/
     --tertiary-color:       #FEEECA; /* light yellow */
-    --font-size-regular:    1.25rem;
-    --font-size-big:        2.5rem;
+    --font-size-regular:    clamp(1rem, 2vh, 1.25rem);
+    --line-height-regular:  clamp(1.5, 3vh, 1.875rem);
+    --font-size-big:        calc(var(--font-size-regular) * 2);
+    --line-height-big:      calc(var(--line-height-regular) * 1.66);
     --font-size-medium:     0.875rem;
-    --font-size-small:      0.75rem;
-    --line-height-regular:  1.875rem;
-    --line-height-big:      3.125rem;
     --line-height-medium:   1.125rem;
+    --font-size-small:      0.75rem;
     --line-height-small:    1rem;
     --header-height:        5rem;
-    --hero-height:          calc(100vh - var(--header-height));   
+    --hero-height:          calc(100vh - var(--header-height));  
+    --footer-height:        6.25rem; 
+    /*font-size:   clamp(1rem, 2vh, 1.125rem);
+  line-height: clamp(1.7rem, 3.5vh, 2.23rem);*/
     
 } 
 
@@ -35,6 +38,8 @@
   
 
   html {
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
   }
+
+  
 

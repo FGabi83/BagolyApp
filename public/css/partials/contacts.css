@@ -1,0 +1,129 @@
+.content-card {
+    width:           100vw;
+    height:          calc(100vh - var(--header-height) - var(--footer-height));
+    margin-top:      var(--header-height);
+    background:      var(--secondary-color) 0% 0% no-repeat padding-box;
+    display:         grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:    repeat(2, 1fr);
+    grid-template-areas: 
+      "map contact-wrapper"
+       "map open-wrapper";
+    padding:        5rem;
+    gap:            2rem;
+  }
+
+  .map {grid-area: map;}
+  .contact-wrapper {grid-area: contact-wrapper;}
+  .open-wrapper {grid-area: open-wrapper;}
+
+  .map {
+    width:           min(100%, 563px);
+    height:          100%;
+    border-radius:   2px;
+    object-fit:      cover;
+    border:          1px solid var(--background-color);
+    place-self:      end;
+    
+  }
+
+  /*.inner-devider {
+    width:           min(40%, 580px);
+    aspect-ratio:    1/1;
+    display:         flex;
+    flex-flow:       column nowrap;
+    justify-content: flex-start;
+    gap:             2rem;
+    align-items:     flex-start;
+   }*/
+
+
+    .contact-wrapper, .open-wrapper {
+      display:         flex;
+      flex-flow:       column nowrap;
+      justify-content: flex-start;
+      gap:             .5rem;
+      
+    }
+
+    
+
+
+      /* Phone and email */
+
+        .phone, .email {
+          display:       block;
+          text-transform: none;
+          margin-bottom:  .25rem;
+
+        }
+
+        
+  
+        .phone:hover, .email:hover {
+          text-decoration: underline;
+        }
+
+  
+
+
+      /* Social media icons */
+
+      .icons-wrapper {
+        /*width:           50%;*/
+        height:          2rem;
+        display:         flex;
+        flex-flow:       row nowrap;
+        justify-content: flex-start;
+        gap:             .625rem;
+  
+      }
+  
+        .icons {
+          display:          flex;
+          flex-flow:        row nowrap;
+          justify-content:  center;
+          align-items:      center;
+          width:            2rem;
+          height:           2rem;
+          background-color: var(--brand-color);
+          color:            var(--secondary-color);
+          opacity:          .8;
+          border-radius:    50%;
+        }
+
+        .icons:hover {
+          background-color: transparent;
+          color:            var(--brand-color);
+          border:           .125rem solid var(--brand-color);
+        }  
+
+    
+
+
+
+@media (max-width: 923px) {
+  .content-card {
+    grid-template-areas: 
+      "contact-wrapper"  
+      "map"
+      "open-wrapper";
+    grid-template-columns: 1fr;
+    grid-template-rows:    auto;
+    justify-items:         center;
+    padding:               5rem 10% 5rem 10%;
+    gap:                  1.5rem;
+  }
+
+  .contact-wrapper {
+    padding-top:  2rem;
+  }
+  
+  .map {
+    width:  clamp(286px, 80%, 358px);
+    aspect-ratio: 1/1;
+    place-self: center;
+  }
+
+  
+}
