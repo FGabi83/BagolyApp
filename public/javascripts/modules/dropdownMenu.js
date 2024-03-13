@@ -4,7 +4,7 @@ function dropdownMenu() {
   const dropdownNavbar = document.querySelector(".nav");
   
   navMenu.addEventListener("click", () => { 
-    dropdownNavbar.classList.toggle("show");
+    navWrapper.classList.toggle("is-open");
     navMenu.classList.toggle("highlight");
   }); 
 }

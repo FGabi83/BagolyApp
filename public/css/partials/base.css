@@ -11,6 +11,7 @@
     --brand-color-rgb:      4, 34, 54;
     --background-color:     #F4F3F5; /* light grey*/
     --tertiary-color:       #FEEECA; /* light yellow */
+    --tertiary-color-rgb:   254, 238, 202;
     --font-size-regular:    clamp(1rem, 2vh, 1.25rem);
     --line-height-regular:  clamp(1.5, 3vh, 1.875rem);
     --font-size-big:        calc(var(--font-size-regular) * 2);
@@ -19,7 +20,9 @@
     --line-height-medium:   1.125rem;
     --font-size-small:      0.75rem;
     --line-height-small:    1rem;
-    --header-height:        5rem;
+    --logo-size:            4.5rem;
+    --logo-margins:         0.25rem;
+    --header-height:        calc(var(--logo-size) + var(--logo-margins) * 2);
     --hero-height:          calc(100vh - var(--header-height));  
     --footer-height:        6.25rem; 
     /*font-size:   clamp(1rem, 2vh, 1.125rem);

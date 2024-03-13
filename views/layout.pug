@@ -15,10 +15,12 @@ html(lang="en")
         header
           a.logo--wrapper(href="/")
             img.logo(src="/images/icons/logo_dark.svg" alt="logo")
-          nav.nav
-            block nav
-              each item, index in h.menu
-                a.nav--item.text--nav(href=item.slug, class=(index === h.menu.length - 1) ? 'nav--item__last' : '') #{item.title}
+          .nav--wrapper
+            div
+              nav.nav
+                block nav
+                  each item, index in h.menu
+                    a.nav--item.text--nav(href=item.slug, class=(index === h.menu.length - 1) ? 'nav--item__last' : '') #{item.title}
           .nav-menu 
             i.fa.fa-bars
       block hero
