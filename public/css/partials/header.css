@@ -7,7 +7,7 @@
 *                    of the header
 */
 
-/*Header*/
+/*Sticky header*/
 
 header {
   width:            100vw;
@@ -19,16 +19,12 @@ header {
   opacity:          1;
   padding-left:     10%;
   padding-right:    10%;
-  /*padding-top:      .25rem!important;
-  padding-bottom:   .25rem!important;*/
-  position:         relative; 
   position:         fixed;
   z-index:          100;  
-  /*overflow:         hidden; */
 }
   
 
-  /* Logo */
+  /* Logo sets the height of the header */
 
   .logo--wrapper {
     display:         flex;
@@ -47,8 +43,8 @@ header {
   } 
     
     .logo:hover {
-      border:          1px solid rgba(254, 238, 202, 1);
-      box-shadow:      1px 1px 1px rgba(254, 238, 202, 1);
+      border:          1px solid rgba(var(--tertiary-color-rgb), 1);
+      box-shadow:      1px 1px 1px rgba(var(--tertiary-color-rgb), 1);
       transition:      0.3s;
       border-radius:   50%;
     }
@@ -62,7 +58,6 @@ header {
 
   .nav {
     width:           27.0625rem;
-    /*height:          5rem;*/
     display:         flex;
     flex-flow:       row nowrap;
     justify-content: space-evenly;
@@ -120,7 +115,7 @@ header {
 
 /*Sandvich menu*/
 /* 
-* 1) white line separating the menu items 
+* 1) light yellow line separating the menu items 
 * 2) hover effect on mobile version not needed
 */
 
@@ -142,7 +137,7 @@ header {
         justify-content:  flex-start;
         align-items:      center;
         position:         relative;
-        top:              calc(5rem - var(--line-height-small));
+        top:              calc(var(--header-height) - var(--line-height-small));
         background-color: var(--brand-color);
         overflow:         hidden;
         transition:       max-height 0.5s ease-out;
@@ -152,41 +147,21 @@ header {
         max-height: 100%;
       }
     
-   
-    
-    /*.nav.show { 
-      display:          flex;
-      flex-flow:        column nowrap;
-      width:            90%;
-      height:           auto;
-      opacity:          1;
-      position:         absolute;
-      top:              var(--header-height);
-      left:             5%;
-      background-color: var(--brand-color);
-      color:            var(--secondary-color);
-      z-index:          100;
-      margin-left:      0; /*desktop version has 3rem margin-left*/
-     /* border-radius:    0 0 .3125rem .3125rem;*/
-     /* }
-    */
-    .nav--wrapper.is-open .nav > .nav--item { /*[1]*/
-        /*box-sizing:    content-box;*/
-        border-bottom: 1px solid rgba(var(--tertiary-color-rgb), 0.65);
-        /*line-height:   var(--line-height-small);*/ 
-        width:         100%;
-        text-align:    center;
-        z-index:       100;
-        padding-top:   1px;
-      }
+        .nav--wrapper.is-open .nav > .nav--item { 
+          border-bottom: 1px solid rgba(var(--tertiary-color-rgb), 0.65); /*[1]*/
+          width:         100%;
+          text-align:    center;
+          z-index:       100;
+          padding-top:   1px;
+        }
 
-      .nav--wrapper.is-open .nav .nav--item__last {
+        .nav--wrapper.is-open .nav .nav--item__last { /*[1]*/
           border-bottom: none;
-      }
+        }
     
             
         .nav--wrapper.is-open .nav > .nav--item:hover::after { /* [2] */
-         display: none;
+          display: none;
         }
          
       
@@ -204,11 +179,3 @@ header {
       }
     }
     
-/* Header padding adjusted to mobile version */
-
-@media (max-width: 600px) {
-
-  header {
-    padding: 0 10% 0 10%;
-  }  
-} 

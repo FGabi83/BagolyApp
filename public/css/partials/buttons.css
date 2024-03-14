@@ -24,9 +24,23 @@
       border-color: var(--brand-color);
       color:        var(--secondary-color);
     }
-  
+
     .btn-primary:hover {
       background:   var(--secondary-color);
       border-color: var(--brand-color);
       color:        var(--brand-color);
     }
+
+    .btn-hollow {
+      background:   transparent;
+      border-color: var(--secondary-color);
+      color:        var(--secondary-color);
+    }
+
+    .btn-hollow:hover {
+      background:   var(--secondary-color);
+      border-color: var(--secondary-color);
+      color:        var(--brand-color);
+    }
+  
+    

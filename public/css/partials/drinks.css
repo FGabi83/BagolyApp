@@ -2,18 +2,20 @@
   background: url('../../images/photos/onebeer.jpg') no-repeat center / cover;
   margin-top: var(--header-height);
   height:     calc(100vh - var(--header-height) - var(--footer-height));
-  overflow:auto;
+  overflow:   auto;
+  
+  
 }
 
 
   .drinks-wrapper {
-    width:     90%;
-    display:   flex;
-    flex-flow: column nowrap;
+    width:           90%;
+    display:         flex;
+    flex-flow:       column nowrap;
     justify-content: flex-start;
-    align-items: center;
-    gap:       2rem;
-    padding:   5% 10% 5% 10%;
+    align-items:     center;
+    gap:             2rem;
+    padding:         5% 10% 5% 10%;
   }
 
 /*
@@ -25,7 +27,6 @@
   border-radius:     2px;
   padding:           1rem;
   width:             max(40%, 468px);
-  
 }
 
  
@@ -38,7 +39,6 @@
     height:          auto;
     opacity:         1;
     border-collapse: collapse; /* 1 */
-    
   }
 
     .table-title {
@@ -46,7 +46,6 @@
       text-transform: uppercase;
       font-weight:    bold;
       margin-bottom:  1rem;
-      
     }
      
     .table thead {
@@ -62,16 +61,18 @@
       /*color:        rgba(188, 149, 108, 1);*/
       }
 
+
+
 /*MOBILE VERSION*/
 
 @media (max-width: 900px) {
   .drinks-wrapper {
-    width: 100vw;
+    width:   100vw;
     padding: 1rem .5rem 1rem .5rem;
     
   }
   .table-container {
-    width:           max(370px, 90%);
+    width:   max(370px, 90%);
     
   } 
 }

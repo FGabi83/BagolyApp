@@ -11,17 +11,54 @@
 .hero--main {
   background:  url('../../images/photos/pub_interior.jpg') no-repeat center / cover; 
   background-blend-mode: multiply;
-  background-color:   rgba(var(--brand-color-rgb), .2);
-  height:             var(--hero-height);
+  background-color:   rgba(var(--brand-color-rgb), .3);
+  min-height:         var(--hero-height);
+  width:              100vw;
   display:            flex;
   flex-flow:          column nowrap;
   justify-content:    center;
   align-items:        center;
   color:              var(--secondary-color);
-  /*padding:            0 0 2.5rem 0;*/
-  position:           relative;
-  top:                5rem;
-  /*margin-bottom:      5rem;*/
+  padding:            1rem .5rem 1rem .5rem;
+  
+  
 }
+
+/* Hero text */
+
+  .text__hero {
+    width: 75%;
+    
+  }
+
+  @media (max-width: 891px) {
+    .text__hero {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 635px) {
+    .text__hero {
+      text-align: left;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .hero--main {
+      padding-left:  5%;
+      padding-right: 5%;
+    }
+    .title__hero {
+      font-size:   calc(1.5 * var(--font-size-big));
+      line-height: calc(1.5 * var(--line-height-big));
+    }
+    .text__hero {
+      font-size:   var(--font-size-regular);
+      line-height: var(--line-height-regular);
+      padding:     0;
+    }
+  }
 
   

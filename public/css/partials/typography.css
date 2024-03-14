@@ -28,12 +28,13 @@ html {
       color:          var(--brand-color);
     }
 
-      .title__extra {
+      .title__hero {
         font-size:      calc(2 * var(--font-size-big)); 
         line-height:    calc(2 * var(--line-height-big));
         text-transform: uppercase;
         color:          var(--secondary-color);
         text-align:     center;
+        
       }
 
     .subtitle {
@@ -45,11 +46,11 @@ html {
     }
 
    
-      .text__extra {
+      .text__hero {
         font-size:   calc(1.5 * var(--font-size-regular)); 
         line-height: calc(1.5 * var(--line-height-regular));
         text-align:  center;
-        width:       50%;
+        
       }
 
     .text--medium {
