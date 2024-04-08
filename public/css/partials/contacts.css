@@ -66,38 +66,7 @@
   
 
 
-      /* Social media icons */
-
-      .icons-wrapper {
-        /*width:           50%;*/
-        height:          2rem;
-        display:         flex;
-        flex-flow:       row nowrap;
-        justify-content: flex-start;
-        gap:             .625rem;
-  
-      }
-  
-        .icons {
-          display:          flex;
-          flex-flow:        row nowrap;
-          justify-content:  center;
-          align-items:      center;
-          width:            2rem;
-          height:           2rem;
-          background-color: var(--brand-color);
-          color:            var(--secondary-color);
-          opacity:          .8;
-          border-radius:    50%;
-        }
-
-        .icons:hover {
-          background-color: transparent;
-          color:            var(--brand-color);
-          border:           .125rem solid var(--brand-color);
-        }  
-
-    
+      
 
 
 

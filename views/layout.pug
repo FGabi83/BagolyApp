@@ -37,7 +37,15 @@ html(lang="en")
         main
         
       footer
-        p.footer-text.text--small © 2024 Copyright <span class="highlighted-text"> Bagoly Pub </span> / Developed by <span class="highlighted-text"> Simple Works </span>
+        .icons-wrapper
+          a(href="https://www.facebook.com" target="_blank")
+            i.icons.icons__light.fa-brands.fa-facebook-f
+          a(href="https://www.instagram.com" target="_blank")
+            i.icons.icons__light.fa-brands.fa-instagram
+        .links-wrapper
+          a.footer-text__link.text--small(href="/adatvédelmi-tájékoztató") Adatvédelmi Tájékoztató
+          a.footer-text__link.text--small(href="/impresszum") Impresszum
+        p.footer-text.text--small © 2024 Copyright Bagoly Pub
 
 
     block scripts

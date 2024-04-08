@@ -2,20 +2,37 @@ footer {
     height:           var(--footer-height);
     width:            100vw;
     display:          flex;
-    flex-flow:        row nowrap;
+    flex-flow:        column nowrap;
     justify-content:  center;  
     align-items:      center;
+    gap:              var(--line-height-small);
     background:       var(--primary-color) 0% 0% no-repeat padding-box;
     opacity:          1;
+    /*padding-top:      var(--line-height-small);
+    padding-bottom:   var(--line-height-small);*/
     
   }
+
+    .links-wrapper {
+      display:         flex;
+      flex-flow:       column nowrap;
+      justify-content: center;
+      align-items:     center;
+      gap:             0;
+    }
   
     .footer-text {
-      width:           69.375rem;
+      /*width:           69.375rem;*/
+      color:           var(--tertiary-color);
       text-align:      center;
       letter-spacing:  0.15rem;
       text-transform:  uppercase;
-      color:           var(--background-color);
+      
+    }
+
+    .footer-text__link {
+      color:           var(--brand-color);
+      
     }
   
 
