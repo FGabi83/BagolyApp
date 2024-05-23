@@ -17,6 +17,10 @@ const drinkSchema = new mongoose.Schema({
   },
   smallPrice: Number,
   largePrice: Number,
+  onTap: {
+    type: Boolean,
+    default: true
+  },
 });
   
   // Define our indexes

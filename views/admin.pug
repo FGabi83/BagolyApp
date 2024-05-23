@@ -1,0 +1,28 @@
+extends layout 
+
+block content
+  main
+    pre= h.dump(brewedBeers) 
+    form.form(action="/admin/drinks/update-tap", method="POST")
+      table.table
+        caption.subtitle.table-title Csapolt Sörök
+        thead.table-header
+          tr
+            th Megnevezés
+            th Pohár 
+            th Korsó 
+            th Csapon
+        tbody
+          each drink in brewedBeers
+            tr.table-items 
+              td= drink.name
+              td #{drink.smallPrice} Ft
+              td #{drink.largePrice} Ft
+              td
+                input(type="hidden", name=`drinks[${drink._id}][id]`, value=drink._id)
+                select(name=`drinks[${drink._id}][onTap]`)
+                  option(value="true", selected=drink.onTap) On Tap
+                  option(value="false", selected=!drink.onTap) Off Tap
+
+      button(type="submit") Save
+

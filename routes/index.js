@@ -22,4 +22,9 @@ router.get('/kapcsolat', (req, res) => {
 
 router.post('/kapcsolat', catchErrors(mailController.sendMail));
 
+router.get('/admin', catchErrors(drinkController.getAllDrinks));
+
+// POST request to update drink stock status for selected drinks
+router.post('/admin/drinks/update-tap', catchErrors(drinkController.updateDrinkTap));
+
 module.exports = router;

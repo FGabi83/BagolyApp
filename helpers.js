@@ -23,4 +23,5 @@ exports.menu = [
   { slug: '/itallap', title: 'Itallap', },
   { slug: '/kapcsolat', title: 'Kapcsolat', },
   
+  
 ];
