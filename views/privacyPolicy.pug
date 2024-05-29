@@ -1,0 +1,41 @@
+extends layout 
+
+include mixins/_head
+
+block head 
+  title Bagoly Pubs | Adatvédelmi tájékoztató
+  +head
+
+block content
+  main.main__vertical
+    h1.title.title__center.title__light Adatvédelmi tájékoztató
+    p.text__dark.text__50.text__bold Üdvözlünk a Bagoly Pubs weboldalán!
+    p.text__dark.text__50 Kérjük, figyelmesen olvasd el ezt az adatvédelmi tájékoztatót, hogy megértsd, hogyan kezeljük és védelmezzük az általad megadott személyes adatokat.
+    h2.subtitle.title__center.title__light Cégadatok
+    ul.text__dark.text__50.privacy--list
+      li Cégnév: Bagoly Pubs Kft. 
+      li Székhely: 1031. Budapest, Ányos utca 4. 
+      li Email: info@bagolypub.hu
+    h2.subtitle.title__center.title__light Személyes adatok gyűjtése és felhasználása
+    p.text__dark.text__50 Az általad megadott személyes adatokat kizárólag az alábbi célokra használjuk fel:
+    ul.text__dark.text__50.privacy--list
+      li 
+        span.text__bold Kapcsolattartás:</span> Ha kapcsolatba lépsz velünk az email címen vagy telefonon keresztül, az általad megadott adatokat csak az adott kommunikáció céljából használjuk fel.
+      li 
+        span.text__bold Asztalfoglalások kezelése:</span> Amennyiben asztalfoglalásra van szükséged, az általad megadott elérhetőségeket csak az asztalfoglalás lebonyolítására és visszaigazolására használjuk fel.
+    h2.subtitle.title__center.title__light Cookie-k használata
+    p.text__dark.text__50 A weboldalunkon cookie-kat használunk annak érdekében, hogy javítsuk a felhasználói élményt és nyomon kövessük a weboldalunk látogatottságát. A Google Analytics segítségével gyűjtött adatokat kizárólag a weboldal teljesítményének elemzésére használjuk fel. Ezek a cookie-k nem tartalmaznak személyes azonosító információkat, és nem alkalmasak arra, hogy azonosítsanak téged.
+    h2.subtitle.title__center.title__light Adatvédelem és biztonság
+    p.text__dark.text__50 Az általad megadott személyes adatokat biztonságosan tároljuk, és csak az arra jogosult személyek férhetnek hozzá. Nem osztjuk meg, áruljuk el vagy adjuk át az adatokat harmadik félnek, kivéve, ha azt törvény kötelezi.
+    h2.subtitle.title__center.title__light Harmadik fél weboldalai
+    p.text__dark.text__50 A weboldalunk lehetőséget biztosít harmadik fél weboldalaira mutató linkek elérésére. Az ilyen weboldalak adatvédelmi gyakorlatáért és tartalmáért nem vagyunk felelősek.
+    h2.subtitle.title__center.title__light Adatvédelmi jogaid
+    p.text__dark.text__50 Az adatvédelmi jogaidról és azok gyakorlásának módjáról részletes tájékoztatást kaphatsz az adatvédelmi törvényeknek megfelelően.
+    h2.subtitle.title__center.title__light Változtatások az adatvédelmi tájékoztatón
+    p.text__dark.text__50 Fenntartjuk a jogot, hogy időnként frissítsük vagy módosítsuk az adatvédelmi tájékoztatónkat. Az esetleges változtatásokról értesíteni fogunk, és frissített tájékoztatót teszünk elérhetővé a weboldalon.
+    h2.subtitle.title__center.title__light Kapcsolat
+    p.text__dark.text__50 Ha bármilyen kérdésed vagy észrevételed van az adatvédelmi tájékoztatóval kapcsolatban, kérjük, lépj kapcsolatba velünk az alábbi elérhetőségen:
+    .privacy--contacts__wrapper
+      p.text__dark.text__50.privacy--contacts Email: 
+        a.privacy--link(href="mailto:info@bagolypub.hu") info@bagolypub.hu
+      

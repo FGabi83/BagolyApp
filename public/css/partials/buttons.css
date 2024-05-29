@@ -19,28 +19,43 @@
     transition:       0.3s;
   }
   
-    .btn-primary {
+    .btn__primary {
       background:   var(--brand-color) 0% 0% no-repeat padding-box;
       border-color: var(--brand-color);
       color:        var(--secondary-color);
     }
 
-    .btn-primary:hover {
+    .btn__primary:hover {
       background:   var(--secondary-color);
       border-color: var(--brand-color);
       color:        var(--brand-color);
     }
 
-    .btn-hollow {
+    .btn__hollow {
       background:   transparent;
       border-color: var(--secondary-color);
       color:        var(--secondary-color);
     }
 
-    .btn-hollow:hover {
+    .btn__hollow:hover {
       background:   var(--secondary-color);
       border-color: var(--secondary-color);
       color:        var(--brand-color);
+    }
+
+    /* On tablet and mobile there is no hover effect */
+
+    @media (max-width: 923px) {
+      .btn__primary:hover {
+        background:   var(--brand-color) 0% 0% no-repeat padding-box;
+        border-color: var(--brand-color);
+        color:        var(--secondary-color);
+      } 
+      .btn__hollow:hover {
+        background:   transparent;
+        border-color: var(--secondary-color);
+        color:        var(--secondary-color); 
+      }
     }
   
     

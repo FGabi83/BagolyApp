@@ -1,7 +1,7 @@
 
 /* Hero picture */
 .hero {
-  width: 100vw;
+  width: 100%;
   height: 40vh;
   object-fit: cover;
 }
@@ -9,11 +9,11 @@
 /* Hero background */
 
 .hero--main {
-  background:  url('../../images/photos/pub_interior.jpg') no-repeat center / cover; 
+  background:  url('../../images/photos/kisasztal.JPG') no-repeat center / cover;
   background-blend-mode: multiply;
   background-color:   rgba(var(--brand-color-rgb), .3);
   min-height:         var(--hero-height);
-  width:              100vw;
+  width:              100%;
   display:            flex;
   flex-flow:          column nowrap;
   justify-content:    center;
@@ -39,7 +39,6 @@
 
   @media (max-width: 635px) {
     .text__hero {
-      text-align: left;
       padding-left: 10%;
       padding-right: 10%;
     }
@@ -57,7 +56,7 @@
     .text__hero {
       font-size:   var(--font-size-regular);
       line-height: var(--line-height-regular);
-      padding:     0;
+      
     }
   }
 

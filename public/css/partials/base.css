@@ -13,21 +13,18 @@
     --tertiary-color:       #FEEECA; /* light yellow */
     --tertiary-color-rgb:   254, 238, 202;
     --font-size-regular:    clamp(1rem, 2vh, 1.25rem);
-    --line-height-regular:  clamp(1.5, 3vh, 1.875rem);
-    --font-size-big:        calc(var(--font-size-regular) * 2);
+    --line-height-regular:  clamp(1.5rem, 3vh, 1.875rem);
+    --font-size-big:        calc(var(--font-size-regular) * 1.8);
     --line-height-big:      calc(var(--line-height-regular) * 1.66);
-    --font-size-medium:     0.875rem;
-    --line-height-medium:   1.125rem;
+    --font-size-medium:     calc(var(--font-size-regular) * 1.2);
+    --line-height-medium:   calc(var(--line-height-regular) * 1.2);
     --font-size-small:      0.75rem;
     --line-height-small:    1rem;
     --logo-size:            4.5rem;
     --logo-margins:         0.25rem;
     --header-height:        calc(var(--logo-size) + var(--logo-margins) * 2);
     --hero-height:          calc(100vh - var(--header-height));  
-    --footer-height:        9rem; 
-    /*font-size:   clamp(1rem, 2vh, 1.125rem);
-  line-height: clamp(1.7rem, 3.5vh, 2.23rem);*/
-    
+    --footer-height:        7.5rem; 
 } 
 
 /* normalize CSS */
@@ -39,11 +36,17 @@
 }
 
   
-
-  html {
-    background-color: var(--secondary-color);
+  html, body {
+    width:      100%;
+    overflow-x: hidden;
   }
 
+
+   body {
+    background-color: var(--secondary-color);
+   }
+
+  
    
 
   

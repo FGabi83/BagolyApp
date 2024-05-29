@@ -1,6 +1,6 @@
 /* Social media icons */
 
-.icons-wrapper {
+.icons--wrapper {
     /*width:           50%;*/
     height:          2rem;
     display:         flex;
@@ -40,4 +40,3 @@
         color:            var(--tertiary-color);
         border:           .125rem solid var(--tertiary-color);
       }  
-

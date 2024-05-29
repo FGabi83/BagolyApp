@@ -7,41 +7,47 @@
   gap:             1.5rem;  
 }
 
-  .accordion-content {
+  .js-accordion--content {
     display:       none;
-    background:    rgba(var(--secondary-color-rgb), .9);
-    color:         var(--brand-color);
+    background:    rgba(var(--brand-color-rgb), .7);
+    color:         var(--secondary-color);
+    font-size:     var(--font-size-medium);
+    line-height:   var(--line-height-medium);
     padding:       2rem;
     border-radius: 2px;
     width:         80%;
    
   }
 
-  .accordion-content.active {
+  .js-accordion--content.js-active {
     display: block;
   }
 
   
-    .accordion-text {
+    .accordion--text {
       margin-bottom: 1rem;
     }
 
 
-    .accordion-list {
-      /*list-style-type: none;*/
+    .accordion--list {
       margin-bottom:   1rem;
       padding-left:    1.5rem;
     }
 
-      /*.accordion-list li::before {
-        /*display: inline-block;*/
-       /* padding-left: 1rem;
-      }*/
+      .accordion--link {
+        color: var(--primary-color);
+      }
+
+      .accordion--link:hover {
+        text-decoration: underline;
+      }
 
     
 
+
+
   @media (max-width: 864px) {
-    .accordion-content {
+    .js-accordion--content {
       width: 100%;
     }
   }
@@ -50,7 +56,7 @@
     .accordion {
       width: 100%;
     }
-    .accordion-content {
+    .js-accordion--content {
       padding-left: 1rem;
       padding-right: 1rem;
     }

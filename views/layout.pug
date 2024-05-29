@@ -1,27 +1,27 @@
 doctype html
-html(lang="en")
+html(lang="hu")
   head
     title= `${title} | ${h.siteName}`
-    script(src="https://kit.fontawesome.com/af9fa598da.js", crossorigin="anonymous")
-    link(rel="preconnect" href="https://fonts.googleapis.com")
-    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-    link(href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet")
-    link(rel='stylesheet', href='/dist/style.css')
-    link(rel="icon", type="image/svg+xml", href="/images/icons/logo_light.svg")
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(charset="UTF-8")
+    block head
+      meta(name="description" content="Bagoly Pub - Az Aquincum új analóg chat szobája!")
   body
     .container 
       block header
         header
           a.logo--wrapper(href="/")
             img.logo(src="/images/icons/logo_dark.svg" alt="logo")
-          .nav--wrapper
+          .js-nav--wrapper
             div
               nav.nav
                 block nav
                   each item, index in h.menu
-                    a.nav--item.text--nav(href=item.slug, class=(index === h.menu.length - 1) ? 'nav--item__last' : '') #{item.title}
-          .nav-menu 
+                    a.js-nav--item.text__nav(href=item.slug, class=(index === h.menu.length - 1) ? 'nav--item__last' : '') #{item.title}
+                  if user 
+                    a.js-nav--item.text__nav(href="/admin") Admin
+                    a.js-nav--item.text__nav(href="/logout") Kijelentkezés
+          .js-nav--menu 
             i.fa.fa-bars
       block hero
       block messages
@@ -37,15 +37,15 @@ html(lang="en")
         main
         
       footer
-        .icons-wrapper
+        .icons--wrapper
           a(href="https://www.facebook.com" target="_blank")
             i.icons.icons__light.fa-brands.fa-facebook-f
           a(href="https://www.instagram.com" target="_blank")
             i.icons.icons__light.fa-brands.fa-instagram
-        .links-wrapper
-          a.footer-text__link.text--small(href="/adatvédelmi-tájékoztató") Adatvédelmi Tájékoztató
-          a.footer-text__link.text--small(href="/impresszum") Impresszum
-        p.footer-text.text--small © 2024 Copyright Bagoly Pub
+        .links--wrapper
+          a.footer--text__link.text__small(href="/adatvedelem") Adatvédelmi Tájékoztató
+          a.footer--text__link.text__small(href="/impresszum") Impresszum
+        p.footer--text.text__small © 2024 Copyright Bagoly Pub
 
 
     block scripts

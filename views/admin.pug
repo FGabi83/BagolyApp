@@ -1,28 +1,39 @@
 extends layout 
 
+include mixins/_head
+
+block head 
+  title Bagoly Pubs | Admin
+  +head()
+
 block content
   main
-    pre= h.dump(brewedBeers) 
     form.form(action="/admin/drinks/update-tap", method="POST")
       table.table
         caption.subtitle.table-title Csapolt Sörök
         thead.table-header
           tr
             th Megnevezés
-            th Pohár 
+            th.gap
+            th Pohár
+            th.gap 
             th Korsó 
+            th.gap
             th Csapon
         tbody
-          each drink in brewedBeers
-            tr.table-items 
+          each drink in tapBeers
+            tr(class=drink.onTap ? 'table-items table-items__highlight' : 'table-items') 
               td= drink.name
+              td.gap
               td #{drink.smallPrice} Ft
+              td.gap
               td #{drink.largePrice} Ft
+              td.gap
               td
                 input(type="hidden", name=`drinks[${drink._id}][id]`, value=drink._id)
                 select(name=`drinks[${drink._id}][onTap]`)
-                  option(value="true", selected=drink.onTap) On Tap
-                  option(value="false", selected=!drink.onTap) Off Tap
+                  option(value="true", selected=drink.onTap) Igen
+                  option(value="false", selected=!drink.onTap) Nem
 
-      button(type="submit") Save
+      button(type="submit") Mentés
 

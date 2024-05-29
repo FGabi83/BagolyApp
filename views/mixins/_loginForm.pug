@@ -1,0 +1,9 @@
+mixin loginForm()
+  form.form(action='/belepes' method='POST')
+    h2.subtitle Bejelentkezés
+    label(for='email') Email cím
+    input.form__input(type='email' name='email')
+    label(for='password') Jelszó
+    input.form__input(type='password' name='password')
+    input.btn.btn-primary(type='submit' value='Belépés →') 
+    

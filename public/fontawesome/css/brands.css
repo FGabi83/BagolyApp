@@ -1,0 +1,44 @@
+/*!
+ * Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2024 Fonticons, Inc.
+ */
+:root, :host {
+  --fa-style-family-brands: 'Font Awesome 6 Brands';
+  --fa-font-brands: normal 400 1em/1 'Font Awesome 6 Brands'; }
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.ttf") format("truetype"); }
+
+.fab,
+.fa-brands {
+  font-weight: 400; }
+
+.fa-square-instagram:before {
+  content: "\e055"; }
+
+.fa-instagram-square:before {
+  content: "\e055"; }
+
+.fa-facebook-f:before {
+  content: "\f39e"; }
+
+.fa-facebook-messenger:before {
+  content: "\f39f"; }
+
+.fa-square-facebook:before {
+  content: "\f082"; }
+
+.fa-facebook-square:before {
+  content: "\f082"; }
+
+.fa-instagram:before {
+  content: "\f16d"; }
+
+.fa-facebook:before {
+  content: "\f09a"; }
+

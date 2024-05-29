@@ -20,7 +20,7 @@ exports.siteName = `Bagoly Pub`;
 
 exports.menu = [
   { slug: '/', title: 'Kezdőlap', },
-  { slug: '/itallap', title: 'Itallap', },
+  { slug: '/kinalat', title: 'Kínálat', },
   { slug: '/kapcsolat', title: 'Kapcsolat', },
   
   

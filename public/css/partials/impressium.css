@@ -1,0 +1,12 @@
+.impressium--wrapper {
+  display:         flex;
+  flex-flow:       column nowrap;
+  justify-content: flex-start;
+  align-items:     flex-start;
+  
+}
+
+  .impressium--subwrapper {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+  }

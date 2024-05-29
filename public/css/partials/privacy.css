@@ -1,0 +1,32 @@
+
+ul.privacy--list {
+  list-style-type: none;
+  margin:          auto;
+}
+
+
+
+.privacy--contacts__wrapper {
+  display:         flex;
+  flex-flow:       column nowrap;
+  justify-content: flex-start;
+  align-items:     center;
+  gap:             0;
+  width:           100%;
+  margin-bottom:   1rem;
+}
+
+  .privacy--contacts {
+    padding-top:    0;
+    padding-bottom: 0;
+  }
+
+    .privacy--link {
+      color: var(--brand-color);
+    }
+
+    .privacy--link:hover {
+      text-decoration: underline;
+    }
+
+  

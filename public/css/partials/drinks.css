@@ -1,14 +1,14 @@
 .drinks--background {
   background: url('../../images/photos/onebeer.jpg') no-repeat center / cover;
   margin-top: var(--header-height);
-  height:     calc(100vh - var(--header-height) - var(--footer-height));
+  height: calc(100vh - var(--header-height));
   overflow:   auto;
-  
+  width:      100%;
   
 }
 
 
-  .drinks-wrapper {
+  .drinks--wrapper {
     width:           90%;
     display:         flex;
     flex-flow:       column nowrap;
@@ -19,10 +19,13 @@
   }
 
 /*
-* 1) Dark blue separator under the table header
+* 1) Brown separator under the table header
+* 2) Making sure all names start with capital letter followed by lowercase
+* 3) Creating gap between the table header and the table items, 
+*    and occasionally between the drinks name and price
 */
 
-.table-container {
+.table--container {
   background-color:  rgba(var(--secondary-color-rgb), .9);
   border-radius:     2px;
   padding:           1rem;
@@ -39,40 +42,101 @@
     height:          auto;
     opacity:         1;
     border-collapse: collapse; /* 1 */
+    border-spacing:  0;
+   
   }
 
-    .table-title {
+  .table__margin-bottom {
+    margin-bottom: 1.5rem;
+  }
+
+    .table--title {
       width:          100%;
       text-transform: uppercase;
       font-weight:    bold;
-      margin-bottom:  1rem;
+      
     }
      
-    .table thead {
+    .table--header {
       color:         rgba(var(--brand-color-rgb), 1);
       border-bottom: 1px solid rgba(var(--primary-color-rgb), 1); /* 1 */
       width:         auto;
       opacity:       1;
+      
+      
     }
 
-    .table .table-items {
-      padding:         .3125rem;
-      width:           auto;
-      /*color:        rgba(188, 149, 108, 1);*/
+      .table--header td:first-child {
+        text-transform: uppercase;
       }
 
+    
+    .table--header::before { /*3*/
+      content: '';
+      display: block;
+      width:   100%;
+      height:  1.5rem;
+    }
 
+    .table--gap {  /*3*/
+      height: .3rem;
+      
+    }
+
+
+    
+    .drinks--price {
+      width: 21.776%;
+      
+    }
+
+    .table-items__highlight {
+      background-color: var(--tertiary-color); 
+    }
+    
+
+      /*.drinks--name {
+        text-transform: lowercase; /*2
+        
+      }
+
+      .drinks--name::first-letter {
+        text-transform: uppercase; /*2
+      }*/
+
+      
 
 /*MOBILE VERSION*/
 
-@media (max-width: 900px) {
-  .drinks-wrapper {
-    width:   100vw;
+@media (max-width: 500px) {
+  .drinks--wrapper {
+    width:   100%;
     padding: 1rem .5rem 1rem .5rem;
     
   }
-  .table-container {
-    width:   max(370px, 90%);
+  .table--container {
+    width:  100%;
     
   } 
+  
+  .drinks--price {
+    white-space: nowrap;
+    height: 25px;
+    padding-left: 5px;
+  }
+  
+}
+
+@media (max-width: 229px) {
+  .drinks--wrapper {
+    padding: 1rem 0 1rem 0;
+    align-items: flex-start;
+  }
+  .table--container {
+    padding-left:  5px;
+    padding-right: 5px;
+    width: auto;
+    
+    /*overflow-x:    auto;*/
+  }  
 }

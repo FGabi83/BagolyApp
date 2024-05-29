@@ -1,51 +1,223 @@
 extends layout
 
+include mixins/_head
+
+block head 
+  meta(name="description" content="Kóstold meg a Bagoly Pub exkluzív kínálatát! Válogass minőségi italaink közül, élvezd a kedvező árakat és a kellemes környezetet!")
+  +head()
 
 block content
   main.drinks--background 
-    .drinks-wrapper
-      .table-container
+    .drinks--wrapper
+      .table--container
         table.table
-          caption.subtitle.table-title Csapolt Sörök
-          thead.table-header
-            td Megnevezés
-            td Pohár 
-            td Korsó 
-          each drink in brewedBeers
-            if drink.onTap === true
-              tr.table-items 
-                td= drink.name
-                td #{drink.smallPrice} Ft
-                td #{drink.largePrice} Ft
-      .table-container     
+          caption.subtitle.table--title Sörök
+          thead.table--header
+            tr 
+              td.text__small.title__light(colspan="3") Az aktuális csapolt sörökről a pultnál lehet érdeklődni
+            tr
+              td Csapolt Sörök
+              td.drinks--price Pohár 
+              td.drinks--price Korsó 
+          tbody
+            tr.table--gap 
+              td 
+              td 
+              td
+            each drink in tapBeers
+              if drink.onTap === true 
+                tr.table--items 
+                  td.drinks--name= drink.name
+                  td.drinks--price #{drink.smallPrice} Ft
+                  td.drinks--price #{drink.largePrice} Ft
+        table.table.table__margin-bottom
+          thead.table--header
+            tr
+              td Üveges Sörök
+              td.table--gap
+              td.drinks--price Ár
+          tbody
+            tr.table--gap
+              td 
+              td 
+              td 
+            each drink in bottledBeers 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.table--gap
+                td.drinks--price #{drink.smallPrice} Ft
+      .table--container   
         table.table
-          caption.subtitle.table-title Üveges Sörök
-          thead.table-header
-            td Megnevezés
-            td Ár 
-          each drink in bottledBeers
-            tr.table-items 
-              td= drink.name
-              td #{drink.smallPrice} Ft
-      .table-container  
+          caption.subtitle.table--title Borok
+          thead.table--header
+            tr
+              td Megnevezés
+              td.drinks--price Ár
+          tbody
+            tr.table--gap
+              td 
+              td 
+            each drink in wine 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+      .table--container   
         table.table
-          caption.subtitle.table-title Rövid Italok
-          thead.table-header
-            td Megnevezés
-            td 2 cl 
-            td 4 cl
-          each drink in shots
-            tr.table-items 
-              td= drink.name
-              td #{drink.smallPrice} Ft
-              td #{drink.largePrice} Ft
-      .table-container   
+          caption.subtitle.table--title Üditők
+          thead.table--header
+            tr
+              td Megnevezés
+              td.drinks--price Ár
+          tbody
+            tr.table--gap 
+              td 
+              td
+            each drink in softDrinks 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft    
+      .table--container
         table.table
-          caption.subtitle.table-title Üditők
-          thead.table-header
-            td Megnevezés
-            td Ár 
-          each drink in softDrinks
-            tr.table-items 
-              td= drink.name
-              td #{drink.smallPrice} Ft       
+          caption.subtitle.table--title Rövid Italok
+          thead.table--header
+            tr
+              td Gin
+              td.drinks--price 3 cl 
+              td.drinks--price 5 cl
+          tbody
+            tr.table--gap 
+              td 
+              td 
+              td
+            each drink in gins 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+                td.drinks--price #{drink.largePrice} Ft  
+        table.table
+          thead.table--header
+            tr
+              td Likőr
+              td.drinks--price 3 cl 
+              td.drinks--price 5 cl
+          tbody
+            tr.table--gap 
+              td 
+              td 
+              td
+            each drink in liqueurs 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+                td.drinks--price #{drink.largePrice} Ft
+        table.table
+          thead.table--header
+            tr
+              td Rum
+              td.drinks--price 3 cl 
+              td.drinks--price 5 cl
+          tbody
+            tr.table--gap 
+              td 
+              td 
+              td
+            each drink in rum 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+                td.drinks--price #{drink.largePrice} Ft
+        table.table
+          thead.table--header
+            tr
+              td Tequila
+              td.drinks--price 3 cl 
+              td.drinks--price 5 cl
+          tbody
+            tr.table--gap
+              td 
+              td 
+              td 
+            each drink in tequila 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+                td.drinks--price #{drink.largePrice} Ft
+        table.table
+          thead.table--header
+            tr
+              td Vodka
+              td.drinks--price 3 cl 
+              td.drinks--price 5 cl
+          tbody
+            tr.table--gap
+              td 
+              td 
+              td
+            each drink in vodka 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+                td.drinks--price #{drink.largePrice} Ft
+        table.table
+          thead.table--header
+            tr
+              td Whisky
+              td.drinks--price 3 cl 
+              td.drinks--price 5 cl
+          tbody
+            tr.table--gap
+              td 
+              td 
+              td
+            each drink in whiskey 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+                td.drinks--price #{drink.largePrice} Ft
+        table.table
+          thead.table--header
+            tr
+              td Krém & keserűlikőr
+              td.table--gap
+              td.drinks--price 8 cl 
+          tbody
+            tr.table--gap 
+              td 
+              td 
+              td
+            each drink in extraLiqueurs 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.table--gap
+                td.drinks--price #{drink.smallPrice} Ft
+      .table--container   
+        table.table
+          caption.subtitle.table--title Long Drinks
+          thead.table--header
+            tr
+              td Megnevezés
+              td.drinks--price Ár
+          tbody
+            tr.table--gap
+              td 
+              td 
+            each drink in longDrinks 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+      .table--container#etel   
+        table.table.table__margin-bottom
+          caption.subtitle.table--title Sörkorcsolyák
+          thead.table--header
+            tr
+              td Megnevezés
+              td.drinks--price Ár
+          tbody
+            tr.table--gap
+              td 
+              td 
+            each dish in dishes 
+              tr.table--items 
+                td.drinks--name= dish.name
+                td.drinks--price #{dish.smallPrice} Ft 
+        p Hamarosan, már dolgozunk rajta!

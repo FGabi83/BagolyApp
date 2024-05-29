@@ -3,26 +3,32 @@ const Drink = mongoose.model('Drink');
 
 exports.getDrinks = async (req, res) => {
   // Query the database for a list of all drinks per category
-  const brewedBeersPromise = Drink.find({ category: 'brewed beer' });
+  const tapBeersPromise = Drink.find({ category: 'tap beer' }).sort({ order: 1 });
   const bottledBeersPromise = Drink.find({ category: 'bottled beer' });
-  const shotsPromise = Drink.find({ category: 'shots' });
+  const ginPromise = Drink.find({ category: 'gin' });
+  const liqueurPromise = Drink.find({ category: 'liqueur' });
+  const extraPromise = Drink.find({ category: 'extra liqueur' });
+  const rumPromise = Drink.find({ category: 'rum' });
+  const tequilaPromise = Drink.find({ category: 'tequila' });
+  const vodkaPromise = Drink.find({ category: 'vodka' });
+  const palinkaPromise = Drink.find({ category: 'palinka' });
+  const whiskeyPromise = Drink.find({ category: 'whiskey' });
+  const winePromise = Drink.find({ category: 'wine' });
+  const longDrinksPromise = Drink.find({ category: 'long drinks' });
   const softDrinksPromise = Drink.find({ category: 'soft drinks' });
+  const dishesPromise = Drink.find({ category: 'dishes' });
   // Wait for all the queries to be finished
-  const [brewedBeers, bottledBeers, shots, softDrinks] = await Promise.all([brewedBeersPromise, bottledBeersPromise, shotsPromise, softDrinksPromise]);
+  const [tapBeers, bottledBeers, gins, liqueurs, extraLiqueurs, rum, tequila, vodka, whiskey, palinka, wine, longDrinks, softDrinks, dishes] = await Promise.all([tapBeersPromise, bottledBeersPromise, ginPromise, liqueurPromise, extraPromise, rumPromise, tequilaPromise, vodkaPromise, whiskeyPromise, palinkaPromise, winePromise, longDrinksPromise, softDrinksPromise, dishesPromise]);
   // render the drinks template with the drinks data  
-  res.render('drinks', { title: 'Itallap', brewedBeers, bottledBeers, shots, softDrinks }); 
+  res.render('drinks', { title: 'Kínálat', tapBeers, bottledBeers, gins, liqueurs, extraLiqueurs, rum, tequila, vodka, whiskey, palinka, wine, longDrinks, softDrinks, dishes }); 
 }; 
 
-exports.getAllDrinks = async (req, res) => {
-  // Query the database for a list of all drinks per category
-  const brewedBeersPromise = Drink.find({ category: 'brewed beer' });
-  const bottledBeersPromise = Drink.find({ category: 'bottled beer' });
-  const shotsPromise = Drink.find({ category: 'shots' });
-  const softDrinksPromise = Drink.find({ category: 'soft drinks' });
-  // Wait for all the queries to be finished
-  const [brewedBeers, bottledBeers, shots, softDrinks] = await Promise.all([brewedBeersPromise, bottledBeersPromise, shotsPromise, softDrinksPromise]);
-  // render the drinks template with the drinks data  
-  res.render('admin', { title: 'Admin', brewedBeers, bottledBeers, shots, softDrinks }); 
+
+
+exports.getTapBeers = async (req, res) => {
+  // Query the database for tap beers
+  const tapBeers = await Drink.find({ category: 'tap beer' }).sort({order: 1 });
+  res.render('admin', { title: 'Admin', tapBeers }); 
 }; 
 
 exports.updateDrinkTap = async (req, res) => {
@@ -37,7 +43,7 @@ exports.updateDrinkTap = async (req, res) => {
 
     await Promise.all(updatePromises);
 
-    req.flash('success', 'Drink tap statuses have been updated!');
+    req.flash('success', '<a href="/kinalat">Itallap frissítve! →</a>');
     res.redirect('/admin');
   } catch (error) {
     console.error('Error updating drink tap statuses:', error);

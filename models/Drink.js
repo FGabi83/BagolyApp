@@ -1,7 +1,8 @@
+const { OrderedBulkOperation } = require('mongodb');
 const mongoose = require('mongoose'); //mongoose package to interface with MongoDB
 mongoose.Promise = global.Promise; //built in ES6 promise, set the mongoose promise property to global
 
-const categories = ['brewed beer', 'bottled beer', 'shots', 'soft drinks'];
+const categories = ['tap beer', 'bottled beer', 'shots', 'soft drinks'];
 
 const drinkSchema = new mongoose.Schema({
   name: {
@@ -15,12 +16,13 @@ const drinkSchema = new mongoose.Schema({
     trim: true,
     required: 'Please enter a drink category!'
   },
-  smallPrice: Number,
-  largePrice: Number,
+  order: Number,
   onTap: {
     type: Boolean,
     default: true
   },
+  smallPrice: Number,
+  largePrice: Number,
 });
   
   // Define our indexes

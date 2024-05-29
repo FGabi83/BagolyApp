@@ -1,0 +1,15 @@
+extends layout 
+
+include mixins/_head
+include mixins/_loginForm
+include mixins/_forgot
+
+block head 
+  +head()
+
+block content 
+  main.main__vertical
+    +loginForm()
+    +forgotForm()
+    
+    

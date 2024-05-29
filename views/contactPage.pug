@@ -1,6 +1,11 @@
 extends layout 
 
+include mixins/_head
 include mixins/_contact 
+
+block head 
+  meta(name="description" content="Lépj kapcsolatba a Bagoly Pubbal! Ha kérdésed van vagy szeretnél foglalni, fordulj hozzánk bizalommal! Várunk szeretettel!")
+  +head()
 
 block content 
   main

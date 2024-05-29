@@ -1,0 +1,42 @@
+extends layout
+
+include mixins/_head
+
+block head 
+  title Bagoly Pubs | Impresszium
+  +head
+
+block content 
+  main.main__vertical
+    h1.title.title__center Impresszium
+    
+    .impressium--wrapper
+      h2.subtitle.title__light Vállalkozás adatai
+      p.text__dark 
+        span.text__bold Cégnév:</span> Bagoly Pubs Kft.
+      p.text__dark 
+        span.text__bold Székhely:</span> 1031. Budapest, Ányos utca 4. 3. em. 7. ajtó
+      p.text__dark 
+        span.text__bold Levelezési cím:</span> 1031. Budapest, Ányos utca 4. 3. em. 7. ajtó
+      p.text__dark 
+        span.text__bold Adószám:</span> 32473371-2-41
+      p.text__dark 
+        span.text__bold A céget bejegyző hatóság:</span> Pest Megyei Kormányhivatal
+      p.text__dark 
+        span.text__bold Cégjegyzékszám:</span> 01-09-426006
+      p.text__dark 
+        span.text__bold Kamara:</span> Budapesti Kereskedelmi és Iparkamara
+      p.text__dark 
+        span.text__bold E-mail:</span> info@bagolypub.hu
+      .impressium--subwrapper      
+        h2.subtitle.title__light Tárhelyszolgáltató adatai     
+        p.text__dark 
+          span.text__bold Cégnév:</span> Rackhost Zrt.      
+        p.text__dark 
+          span.text__bold Székhely:</span> 6722 Szeged, Tisza Lajos körút 41.      
+        p.text__dark 
+          span.text__bold Adószám:</span> 25333572-2-06
+        p.text__dark 
+          span.text__bold Cégjegyzékszám:</span> 06-10-000489
+        p.text__dark 
+          span.text__bold E-mail:</span> info@rackhost.hu

@@ -1,28 +1,33 @@
 extends layout 
 
+include mixins/_head
 include mixins/_contact
 
-
+block head 
+  meta(name="description" content="Ismerd meg a Bagoly Pub varázslatos világát! Fedezd fel az igazi kocsmák hangulatát a Római téren! Minőségi italok, barátságos árak, társasjátékok, könyvek - garantált jó hangulat!")
+  +head()
 block content
   main
     .hero--main
       .accordion
         h1.title.title__hero Bagoly Pub 
-        h6.text__hero Üdv Mindenkinek az Aquincum új analóg chat szobájában!
-        button.btn.btn-hollow.accordion-btn Tovább
-        .accordion-content
-          p.accordion-text Számtalanszor merült fel bennünk, hogy dolgunk végeztével szívesen beülnénk egy helyre ahol összefutunk a barátokkal, koccintunk egyet, bekapunk egy falatot, megbeszéljük mi volt ma, ami közel van és könnyen odajutunk, ha épp nincs kedvünk elsétálni a “partra”, vagy épp az esti buli előtt legurítanánk egy tüskét, vagy egy-két jófajtát.
-          p.accordion-text 
+        h2.text__hero Üdv Mindenkinek az Aquincum új analóg chat szobájában!
+        button.btn.btn__hollow.js-accordion--btn Tovább
+        .js-accordion--content
+          p.accordion--text Számtalanszor merült fel bennünk, hogy dolgunk végeztével szívesen beülnénk egy helyre ahol összefutunk a barátokkal, koccintunk egyet, bekapunk egy falatot, megbeszéljük mi volt ma, ami közel van és könnyen odajutunk, ha épp nincs kedvünk elsétálni a “partra”, vagy épp az esti buli előtt legurítanánk egy tüskét, vagy egy-két jófajtát.
+          p.accordion--text 
             | Ezért úgy döntöttünk, hogy életre keltjük az Aquincum új felnőttmegőrzőjét, a Bagoly Pub-ot!
             | …és hogy miért is lesz ez a kedvenc helyed a környéken? Mondjuk:
-          ul.accordion-list
+          ul.accordion--list
             li könnyed, laza de mégis patent design
-            li elsőrendű italkínálat (csekkold itt: 
-              a(href='/itallap') Itallap) 
-            li nem halsz éhen, íme az éléskamra (csekkold itt: ) 
+            li elsőrendű italkínálat (csekkold itt:   
+              a.accordion--link(href='/kinalat') Itallap</a>)
+            li nem halsz éhen, íme az éléskamra ( csekkold itt: 
+              a.accordion--link(href='/kinalat#etel') Sörkorcsolyák</a>)
             li Bagoly könyvtár ( olvashatsz, könyvjelzőt is kapsz )
             li dolgozhatsz ( van wifi, de inkább beszélgessetek )
             li van társasjáték, kártya, gyertek hozzánk a haverokkal játszani
             li zene ( minden mennyiségben )
           p Várunk, próbálj ki minket, úgyis visszajössz!
-    +contact() 
+    +contact()
+    
