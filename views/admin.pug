@@ -1,14 +1,16 @@
 extends layout 
 
 include mixins/_head
+include mixins/_head-end
 
 block head 
   title Bagoly Pubs | Admin
   +head()
+  +headEnd()
 
 block content
   main
-    form.form(action="/admin/drinks/update-tap", method="POST")
+    form.form(action="/VdfcUcU8p5ATP/drinks/update-tap", method="POST")
       table.table
         caption.subtitle.table-title Csapolt Sörök
         thead.table-header

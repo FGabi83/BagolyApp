@@ -1,10 +1,12 @@
 extends layout 
 
 include mixins/_head
+include mixins/_head-end
 
 block head 
   title Bagoly Pubs | Adatvédelmi tájékoztató
   +head
+  +headEnd()
 
 block content
   main.main__vertical
@@ -23,8 +25,6 @@ block content
         span.text__bold Kapcsolattartás:</span> Ha kapcsolatba lépsz velünk az email címen vagy telefonon keresztül, az általad megadott adatokat csak az adott kommunikáció céljából használjuk fel.
       li 
         span.text__bold Asztalfoglalások kezelése:</span> Amennyiben asztalfoglalásra van szükséged, az általad megadott elérhetőségeket csak az asztalfoglalás lebonyolítására és visszaigazolására használjuk fel.
-    h2.subtitle.title__center.title__light Cookie-k használata
-    p.text__dark.text__50 A weboldalunkon cookie-kat használunk annak érdekében, hogy javítsuk a felhasználói élményt és nyomon kövessük a weboldalunk látogatottságát. A Google Analytics segítségével gyűjtött adatokat kizárólag a weboldal teljesítményének elemzésére használjuk fel. Ezek a cookie-k nem tartalmaznak személyes azonosító információkat, és nem alkalmasak arra, hogy azonosítsanak téged.
     h2.subtitle.title__center.title__light Adatvédelem és biztonság
     p.text__dark.text__50 Az általad megadott személyes adatokat biztonságosan tároljuk, és csak az arra jogosult személyek férhetnek hozzá. Nem osztjuk meg, áruljuk el vagy adjuk át az adatokat harmadik félnek, kivéve, ha azt törvény kötelezi.
     h2.subtitle.title__center.title__light Harmadik fél weboldalai

@@ -18,9 +18,6 @@ html(lang="hu")
                 block nav
                   each item, index in h.menu
                     a.js-nav--item.text__nav(href=item.slug, class=(index === h.menu.length - 1) ? 'nav--item__last' : '') #{item.title}
-                  if user 
-                    a.js-nav--item.text__nav(href="/admin") Admin
-                    a.js-nav--item.text__nav(href="/logout") Kijelentkezés
           .js-nav--menu 
             i.fa.fa-bars
       block hero
@@ -38,9 +35,9 @@ html(lang="hu")
         
       footer
         .icons--wrapper
-          a(href="https://www.facebook.com" target="_blank")
+          a(href="https://www.facebook.com/profile.php?id=61558827775371" target="_blank" aria-label="Bagoly Pub Facebook oldala")
             i.icons.icons__light.fa-brands.fa-facebook-f
-          a(href="https://www.instagram.com" target="_blank")
+          a(href="https://www.instagram.com" target="_blank" aria-label="Bagoly Pub Instagram oldala")
             i.icons.icons__light.fa-brands.fa-instagram
         .links--wrapper
           a.footer--text__link.text__small(href="/adatvedelem") Adatvédelmi Tájékoztató

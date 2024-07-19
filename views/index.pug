@@ -1,11 +1,14 @@
 extends layout 
 
 include mixins/_head
+include mixins/_head-end
 include mixins/_contact
 
 block head 
   meta(name="description" content="Ismerd meg a Bagoly Pub varázslatos világát! Fedezd fel az igazi kocsmák hangulatát a Római téren! Minőségi italok, barátságos árak, társasjátékok, könyvek - garantált jó hangulat!")
   +head()
+  link(rel="preload" fetchpriority="high" as="image" href="/images/photos/2187770e3ba20bbb47cd.JPG" type="image/jpeg")
+  +headEnd()
 block content
   main
     .hero--main

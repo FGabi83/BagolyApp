@@ -86,8 +86,8 @@
 
     
     .drinks--price {
-      width: 21.776%;
-      
+      width:      21%;
+      text-align: right;
     }
 
     .table-items__highlight {
@@ -95,16 +95,7 @@
     }
     
 
-      /*.drinks--name {
-        text-transform: lowercase; /*2
-        
-      }
-
-      .drinks--name::first-letter {
-        text-transform: uppercase; /*2
-      }*/
-
-      
+     
 
 /*MOBILE VERSION*/
 
@@ -122,7 +113,10 @@
   .drinks--price {
     white-space: nowrap;
     height: 25px;
-    padding-left: 5px;
+    padding-left: 2px;
+  }
+  .drinks--price.right-col {
+    padding-left: 9px;
   }
   
 }

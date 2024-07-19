@@ -1,10 +1,13 @@
 extends layout
 
 include mixins/_head
+include mixins/_head-end
 
 block head 
   meta(name="description" content="Kóstold meg a Bagoly Pub exkluzív kínálatát! Válogass minőségi italaink közül, élvezd a kedvező árakat és a kellemes környezetet!")
   +head()
+  link(rel="preload" fetchpriority="high" as="image" href="/images/photos/c872ac390900b60b522b.jpg" type="image/jpeg")
+  +headEnd()
 
 block content
   main.drinks--background 
@@ -29,7 +32,7 @@ block content
                 tr.table--items 
                   td.drinks--name= drink.name
                   td.drinks--price #{drink.smallPrice} Ft
-                  td.drinks--price #{drink.largePrice} Ft
+                  td.drinks--price.right-col #{drink.largePrice} Ft
         table.table.table__margin-bottom
           thead.table--header
             tr
@@ -93,7 +96,7 @@ block content
               tr.table--items 
                 td.drinks--name= drink.name
                 td.drinks--price #{drink.smallPrice} Ft
-                td.drinks--price #{drink.largePrice} Ft  
+                td.drinks--price.right-col #{drink.largePrice} Ft  
         table.table
           thead.table--header
             tr
@@ -109,7 +112,7 @@ block content
               tr.table--items 
                 td.drinks--name= drink.name
                 td.drinks--price #{drink.smallPrice} Ft
-                td.drinks--price #{drink.largePrice} Ft
+                td.drinks--price.right-col #{drink.largePrice} Ft
         table.table
           thead.table--header
             tr
@@ -125,7 +128,7 @@ block content
               tr.table--items 
                 td.drinks--name= drink.name
                 td.drinks--price #{drink.smallPrice} Ft
-                td.drinks--price #{drink.largePrice} Ft
+                td.drinks--price.right-col #{drink.largePrice} Ft
         table.table
           thead.table--header
             tr
@@ -141,7 +144,7 @@ block content
               tr.table--items 
                 td.drinks--name= drink.name
                 td.drinks--price #{drink.smallPrice} Ft
-                td.drinks--price #{drink.largePrice} Ft
+                td.drinks--price.right-col #{drink.largePrice} Ft
         table.table
           thead.table--header
             tr
@@ -157,7 +160,7 @@ block content
               tr.table--items 
                 td.drinks--name= drink.name
                 td.drinks--price #{drink.smallPrice} Ft
-                td.drinks--price #{drink.largePrice} Ft
+                td.drinks--price.right-col #{drink.largePrice} Ft
         table.table
           thead.table--header
             tr
@@ -173,7 +176,23 @@ block content
               tr.table--items 
                 td.drinks--name= drink.name
                 td.drinks--price #{drink.smallPrice} Ft
-                td.drinks--price #{drink.largePrice} Ft
+                td.drinks--price.right-col #{drink.largePrice} Ft
+        table.table
+          thead.table--header
+            tr
+              td Pálinka
+              td.drinks--price 3 cl 
+              td.drinks--price 5 cl
+          tbody
+            tr.table--gap
+              td 
+              td 
+              td
+            each drink in palinka 
+              tr.table--items 
+                td.drinks--name= drink.name
+                td.drinks--price #{drink.smallPrice} Ft
+                td.drinks--price.right-col #{drink.largePrice} Ft
         table.table
           thead.table--header
             tr

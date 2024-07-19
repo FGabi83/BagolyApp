@@ -1,14 +1,16 @@
 extends layout
 
 include mixins/_head
+include mixins/_head-end
 
 block head 
-  title Bagoly Pubs | Impresszium
+  title Bagoly Pubs | Impresszum
   +head
+  +headEnd
 
 block content 
   main.main__vertical
-    h1.title.title__center Impresszium
+    h1.title.title__center Impresszum
     
     .impressium--wrapper
       h2.subtitle.title__light Vállalkozás adatai
@@ -31,12 +33,12 @@ block content
       .impressium--subwrapper      
         h2.subtitle.title__light Tárhelyszolgáltató adatai     
         p.text__dark 
-          span.text__bold Cégnév:</span> Rackhost Zrt.      
+          span.text__bold Cégnév:</span> Sybell Informatika Kft.     
         p.text__dark 
-          span.text__bold Székhely:</span> 6722 Szeged, Tisza Lajos körút 41.      
+          span.text__bold Székhely:</span> 1158 Budapest, Késmárk u. 7/B 2. em. 206.      
         p.text__dark 
-          span.text__bold Adószám:</span> 25333572-2-06
+          span.text__bold Adószám:</span> 25859502-2-42
         p.text__dark 
-          span.text__bold Cégjegyzékszám:</span> 06-10-000489
+          span.text__bold Cégjegyzékszám:</span> 01-09-293034
         p.text__dark 
-          span.text__bold E-mail:</span> info@rackhost.hu
+          span.text__bold E-mail:</span> info@sybell.hu

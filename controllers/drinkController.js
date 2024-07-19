@@ -44,7 +44,7 @@ exports.updateDrinkTap = async (req, res) => {
     await Promise.all(updatePromises);
 
     req.flash('success', '<a href="/kinalat">Itallap frissítve! →</a>');
-    res.redirect('/admin');
+    res.redirect('/VdfcUcU8p5ATP');
   } catch (error) {
     console.error('Error updating drink tap statuses:', error);
     res.status(500).json({ success: false, error: 'An error occurred while updating drink tap statuses.' });
