@@ -17,6 +17,7 @@
 .form {
   display:       flex;
   flex-flow:     column nowrap;
+  gap:           1rem;
   
 }
 
@@ -35,6 +36,7 @@
     display:          block;
     width:            26.25rem;
     height:           3.125rem;
+    height:           auto;
     margin-bottom:    .9375rem;
     padding:          1rem 1.5rem 1rem 1.5rem;
     background-color: var(--background-color);
@@ -44,7 +46,7 @@
   }
 
     .form__input::placeholder {
-      color:          var(--primary-color);
+      color:          var(--brand-color);
       opacity:        .25;
     }
 

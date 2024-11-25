@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const drinkController = require('../controllers/drinkController');
 const mailController = require('../controllers/mailController');
-
+const formController = require('../controllers/formController');
 
 // Do work here
 
@@ -27,6 +27,11 @@ router.get('/VdfcUcU8p5ATP', catchErrors(drinkController.getTapBeers));
 
 // POST request to update drink stock status for selected drinks
 router.post('/VdfcUcU8p5ATP/drinks/update-tap', catchErrors(drinkController.updateDrinkTap));
+
+//Daily closing form
+router.get('/napi-zaras', catchErrors(formController.getForm));
+//Handle the form submission
+router.post('/napi-zaras', catchErrors(formController.checkForm));
 
 //Must have pages
 

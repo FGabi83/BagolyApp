@@ -1,0 +1,15 @@
+extends layout
+
+include mixins/_head
+include mixins/_head-end
+
+block head 
+  +head()
+  +headEnd()
+
+block content
+  main.main__vertical 
+    h1= title
+    p.text__dark <span class="text__bold"> Leadó:</span> #{actualIncome} Ft
+    p.text__dark <span class="text__bold">Borravaló:</span> #{tipsAmount} Ft
+    p.text__dark <span class="text__bold">Napi váltó:</span> #{nextDayOpening} Ft
