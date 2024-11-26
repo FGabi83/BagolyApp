@@ -1,0 +1,45 @@
+extends layout
+
+include mixins/_head
+include mixins/_head-end
+include mixins/_closingForm
+
+block head 
+  +head()
+  +headEnd()
+  script.
+    function calculateTotal() {
+      const rows = document.querySelectorAll('.denomination-row input');
+      let total = 0;
+      rows.forEach(row => {
+        const value = parseFloat(row.dataset.denomination) || 0;
+        const count = parseInt(row.value) || 0;
+        total += value * count;
+      });
+      document.getElementById('countedAmount').value = total;
+      document.getElementById('total-display').textContent = total + ' Ft';
+    }
+
+block content
+  main.main__vertical 
+    h1= title
+    h2 Kassza fiók tartalma címletenként
+      div#denomination-container
+        each denomination in [20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5]
+          label.denomination-row
+            | #{denomination} Ft:
+            input(type="number" step="1" min="0" placeholder="Db" data-denomination=denomination oninput="calculateTotal()")
+        p Összesen: <span id="total-display">0 Ft</span>
+    form.form(action='/napi-zaras' method='POST')
+      label.text--medium(for="createdBy") Elszámolást készítette
+        select.form__input.text--medium(id="createdBy" name="createdBy" required)
+          option(value="" disabled selected) -- Válassz egy nevet --
+          option(value="Adam") Ádám
+          option(value="Arpi") Árpi
+          option(value="Peter") Péter
+          option(value="Viki") Viki
+      label.text--medium(for="shiftStart") Műszak kezdete
+        input.form__input.text--medium(type="date" id="shiftStart" name="shiftStart" required)
+      label.text--medium(for="countedAmount") Kasszafiók tartalma
+        input.form__input.text--medium(type="number" id="countedAmount" name="countedAmount" placeholder="Leszámolt összeg" required readonly)
+      +closingForm()

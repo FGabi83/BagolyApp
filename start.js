@@ -21,6 +21,7 @@ mongoose.connection.on('error', (err) => {
 
 // import all our models
 require('./models/Drink');
+require('./models/Closing');
 
 
 // Start our app!

@@ -1,4 +1,3 @@
-const { OrderedBulkOperation } = require('mongodb');
 const mongoose = require('mongoose'); //mongoose package to interface with MongoDB
 mongoose.Promise = global.Promise; //built in ES6 promise, set the mongoose promise property to global
 

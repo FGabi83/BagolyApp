@@ -1,19 +1,30 @@
-/*
-*Content card - Address.......map, address, phone, email, 
-*                             social media icons
-*
-*Content card - Contact-us....typography, form layout 
-*                             (input, textarea, button)
-*Mobile version 
-*/
-
-
-
-      
+     
 /*-----------------------------------*\
-* CONTENT - CONTACT US 
+* CONTENT - FORM STYLES
 \*-----------------------------------*/
+#denomination-container {
+  display:       flex;
+  flex-flow:     column nowrap;
+  gap:           1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 
+.denomination-row {
+  display:         flex;
+  width:           12rem;
+  flex-flow:       row nowrap;
+  gap:             1rem;
+  justify-content: space-between;
+  align-items:     flex-start;
+  border-bottom:   1px solid var(--brand-color);
+}
+
+  .denomination-row > * {
+    width: 4ch;
+  }
 .form {
   display:       flex;
   flex-flow:     column nowrap;

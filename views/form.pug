@@ -2,6 +2,7 @@ extends layout
 
 include mixins/_head
 include mixins/_head-end
+include mixins/_closingForm
 
 block head 
   +head()
@@ -14,19 +15,12 @@ block content
       label.text--medium(for="createdBy") Elszámolást készítette
         select.form__input.text--medium(id="createdBy" name="createdBy" required)
           option(value="" disabled selected) -- Válassz egy nevet --
-          option(value="adam") Ádám
-          option(value="arpi") Árpi
-          option(value="peter") Péter
-          option(value="viki") Viki
+          option(value="Adam") Ádám
+          option(value="Arpi") Árpi
+          option(value="Peter") Péter
+          option(value="Viki") Viki
+      label.text--medium(for="shiftStart") Műszak kezdete
+        input.form__input.text--medium(type="date" id="shiftStart" name="shiftStart" required)
       label.text--medium(for="countedAmount") Kasszafiók tartalma
         input.form__input.text--medium(type="number" id="countedAmount" name="countedAmount" placeholder="Leszámolt összeg" required)
-      h2 Adatok FruitSys-ből:
-      label.text--medium(for="openingAmount") Kassza nyitó összeg 
-        input.form__input.text--medium(type="number" id="openingAmount" name="openingAmount" placeholder="Pénztár jelentés/Nyitó pénzkészlet/készpénz" required)
-      label.text--medium(for="dailyIncome") Napi készpénz forgalom 
-        input.form__input.text--medium(type="number" id="dailyIncome" name="dailyIncome" placeholder="Pénztár jelentés/Napi forgalom/készpénz" required)
-      label.text--medium(for="personelConsumption") Személyzeti fogyasztás 
-        input.form__input.text--medium(type="number" id="personelConsumption" name="personelConsumption" placeholder="Pénzforgalmi elszámolás/Személyzeti fogyasztás" required)
-      label.text--medium(for="tips") Borravaló 
-        input.form__input.text--medium(type="number" id="tips" name="tips" placeholder="Pénzforgalmi elszámolás/Borravaló" required)  
-      input.btn.btn-primary(type="submit" value= "Küldés") 
+      +closingForm()

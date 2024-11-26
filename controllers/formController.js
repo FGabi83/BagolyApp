@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Closing = mongoose.model('Closing');
 
 // Display the form
 exports.getForm = (req, res) => {
@@ -9,8 +10,8 @@ exports.getForm = (req, res) => {
 //Get the data from the form and check if the counted amount of money equals to or is greater than the calculated amount from FruitSys data
 exports.checkForm = async (req, res) => {
   // Get the data from the form
-  const { countedAmount, openingAmount, personelConsumption, dailyIncome, tips } = req.body;
-  //make sure all the data (countedAmount, openingAmount, personelConsumption, dailyIncome, tips) coming from the form are numbers not strings
+  const { createdBy, shiftStart, countedAmount, openingAmount, personelConsumption, dailyIncome, tips } = req.body;
+  //make sure all the data are numbers not strings
   const countedAmountNum = parseInt(countedAmount);
   const openingAmountNum = parseInt(openingAmount);
   const personelConsumptionNum = parseInt(personelConsumption);
@@ -21,23 +22,32 @@ exports.checkForm = async (req, res) => {
   
   // Calculate the total amount of money
   const totalAmount = openingAmountNum + personelConsumptionNum + dailyIncomeNum;
-  console.log(totalAmount);
-  //Check the difference between the counted amount and the calculated amount
+   //Check the difference between the counted amount and the calculated amount
   if(countedAmountNum >= totalAmount){
     //If the counted amount is greater than or equals to the calculated amount, calculate how much the actual income was, and advise how much they should leave in the cassa for next day's opening (by default it is 50000) and advise how much they should take as tips
-    const actualIncome = totalAmount - openingAmountNum - tipsNum;
-    console.log(actualIncome);
-    let nextDayOpening = openingAmountNum;
-    let tipsAmount = tipsNum;
-    /*if(CountedAmount > TotalAmount){
-      TipsAmount = TipsAmount + (CountedAmount - TotalAmount);
-    }*/
+    const actualIncome = countedAmountNum - openingAmountNum - tipsNum;
+    
     //save the data to mongoDB the data names should be different than the variable names
-    /*const ClosingData = new Closing({ CountedAmount, OpeningAmount, PersonelConsumption, DailyIncome, Tips, ActualIncome, NextDayOpening, TipsAmount });*/
-    res.render('closing', { title: 'Napi Zárás', actualIncome, nextDayOpening, tipsAmount });
+    const ClosingData = new Closing({ 
+      Keszitette: createdBy, 
+      Muszak_kezdete: shiftStart, 
+      Kassza_tartalma: countedAmountNum, 
+      Kassza_nyito: openingAmountNum, 
+      Szemelyzeti_fogyasztas: personelConsumptionNum, 
+      Leado: actualIncome, 
+      Borravalo: tipsNum });
+    
+    ClosingData.save()
+    .then((savedData) => {
+      console.log('Data saved successfully:', savedData);
+    })
+    .catch((err) => {
+      console.error('Error saving data:', err);
+    });
+    //Render the closing page with the actual income, the advised next day opening amount and the advised tips amount
+    res.render('closing', { title: 'Napi Zárás', actualIncome, openingAmountNum, tipsNum });
   } else {
-    alert('A számolt összeg kevesebb a számított összegnél!');
-    /*res.render('detailedForm', { title: 'Napi zárás részletes adatok megadása', error: 'A számolt összeg kevesebb a számított összegnél!', ActualIncome, NextDayOpening, TipsAmount });*/
+    res.render('detailedForm', { title: 'Napi zárás részletes adatok megadása', error: 'A számolt összeg kevesebb a számított összegnél!'});
    };
   
 };
