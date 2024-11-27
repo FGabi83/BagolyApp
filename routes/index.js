@@ -28,10 +28,14 @@ router.get('/VdfcUcU8p5ATP', catchErrors(drinkController.getTapBeers));
 // POST request to update drink stock status for selected drinks
 router.post('/VdfcUcU8p5ATP/drinks/update-tap', catchErrors(drinkController.updateDrinkTap));
 
-//Daily closing form
+
+//DAILY CLOSING
+//Display simple form
 router.get('/napi-zaras', catchErrors(formController.getForm));
-//Handle the form submission
-router.post('/napi-zaras', catchErrors(formController.checkForm));
+//Check form first time
+router.post('/napi-zaras', catchErrors(formController.checkForm), catchErrors(formController.getDetailedForm));
+//Check form second time
+router.post('/napi-teteles-zaras', catchErrors(formController.checkForm), catchErrors(formController.getClosingWithError));
 
 //Must have pages
 

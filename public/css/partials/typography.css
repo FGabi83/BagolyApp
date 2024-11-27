@@ -89,6 +89,10 @@ html {
       .text__dark {
         color: var(--brand-color);
       }
+
+      .text__left {
+        text-align: left;
+      }
      
 
       .text__bold {

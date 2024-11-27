@@ -1,0 +1,17 @@
+extends layout
+
+include mixins/_head
+include mixins/_head-end
+
+block head 
+  +head()
+  +headEnd()
+
+block content
+  main.main__vertical
+    h1.title.title__center.title__light= error
+    p.text__dark A leadó #{actualIncome} Ft
+    p.text__dark A borravaló #{tips} Ft
+    p.text__dark A napi váltó #{openingAmountNum} Ft volt 
+    p.text__dark A napi váltóból #{missingOpeningAmount} Ft hiányzik
+    p.text__dark A leadóból #{missingIncome} Ft hiányzik
