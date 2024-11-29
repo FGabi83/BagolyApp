@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const drinkController = require('../controllers/drinkController');
-const mailController = require('../controllers/mailController');
 const formController = require('../controllers/formController');
 
 // Do work here
@@ -20,7 +19,7 @@ router.get('/kapcsolat', (req, res) => {
     res.render('contactPage', { title: 'Kapcsolat' });
 }); 
 
-router.post('/kapcsolat', catchErrors(mailController.sendMail));
+/*router.post('/kapcsolat', catchErrors(mailController.sendMail));*/
 
 
 router.get('/VdfcUcU8p5ATP', catchErrors(drinkController.getTapBeers));

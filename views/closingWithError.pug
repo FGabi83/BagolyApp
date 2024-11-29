@@ -9,9 +9,11 @@ block head
 
 block content
   main.main__vertical
-    h1.title.title__center.title__light= error
-    p.text__dark A leadó #{actualIncome} Ft
-    p.text__dark A borravaló #{tips} Ft
-    p.text__dark A napi váltó #{openingAmountNum} Ft volt 
-    p.text__dark A napi váltóból #{missingOpeningAmount} Ft hiányzik
-    p.text__dark A leadóból #{missingIncome} Ft hiányzik
+    .closing--wrapper
+      h1.title.title__center.title__light= error
+      div
+        p.text__dark A <span class="text__bold">leadó</span> #{actualIncome} Ft
+        p.text__dark A <span class="text__bold">borravaló</span> #{tips} Ft
+        p.text__dark A napi váltó #{openingAmountNum} Ft volt 
+        p.text__dark A napi váltóból <span class="text__bold">#{missingOpeningAmount} Ft hiányzik</span>
+        p.text__dark A leadóból <span class="text__bold">#{missingIncome} Ft hiányzik</span>

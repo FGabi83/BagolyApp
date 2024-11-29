@@ -1,0 +1,10 @@
+.closing--wrapper {
+  max-width: 70%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}

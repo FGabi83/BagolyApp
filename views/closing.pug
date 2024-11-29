@@ -8,8 +8,10 @@ block head
   +headEnd()
 
 block content
-  main.main__vertical 
-    h1= title
-    p.text__dark <span class="text__bold"> Leadó:</span> #{actualIncome} Ft
-    p.text__dark <span class="text__bold">Borravaló:</span> #{tipsNum} Ft
-    p.text__dark <span class="text__bold">Napi váltó:</span> #{openingAmountNum} Ft
+  main.main__vertical
+    .closing--wrapper 
+      h1= title
+      div
+        p.text__dark <span class="text__bold"> Leadó:</span> #{actualIncome} Ft
+        p.text__dark <span class="text__bold">Borravaló:</span> #{tipsNum} Ft
+        p.text__dark <span class="text__bold">Napi váltó:</span> #{openingAmountNum} Ft  

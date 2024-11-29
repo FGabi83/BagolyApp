@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const { parse } = require('path');
+const { parse } = require('path'); 
 const Closing = mongoose.model('Closing');
+const sendEmail = require('../handlers/emailHandler');
 
 // DISPLAY SIMPLE FORM
 exports.getForm = (req, res) => {
@@ -77,9 +78,9 @@ exports.getDetailedForm = (req, res) => {
   res.render('detailedForm', { title: 'Napi zárás részletes adatok megadása' });
 };
 
-//CLOSING WITH ERROR
-exports.getClosingWithError = (req, res) => {
-  const { createdBy, shiftStart, countedAmountNum, openingAmountNum, personelConsumptionNum, dailyIncomeNum, tipsNum, totalAmount} = req.closingData;
+//CLOSING WITH ERROR 
+exports.getClosingWithError =  (req, res) => {
+  const { createdBy, shiftStart, countedAmountNum, openingAmountNum, personelConsumptionNum, dailyIncomeNum, tipsNum, totalAmount} =  req.closingData;
   const deficit = totalAmount - countedAmountNum;
   
   const actualIncome = totalAmount - openingAmountNum - tipsNum;
@@ -95,7 +96,49 @@ exports.getClosingWithError = (req, res) => {
   if(missingOpeningAmount < 0){
     missingIncome = actualIncome - (actualIncome + missingOpeningAmount);
   } 
- 
+
+  //Prepare the data for the sending email
   
-  res.render('closingWithError', { title: 'Hiány', error: req.error,  actualIncome, openingAmountNum, missingOpeningAmount, tips, missingIncome });
+  const errorMessage = {
+    deficit,
+    missingOpeningAmount,
+    missingIncome
+  }
+
+  //save the data to mongoDB the data names should be different than the variable names
+  const ClosingData = new Closing({ 
+    Keszitette: createdBy, 
+    Muszak_kezdete: shiftStart, 
+    Kassza_tartalma: countedAmountNum, 
+    Kassza_nyito: openingAmountNum, 
+    Szemelyzeti_fogyasztas: personelConsumptionNum, 
+    Leado: actualIncome, 
+    Borravalo: tipsNum });
+  
+  ClosingData.save()
+  .then((savedData) => {
+    console.log('Data saved successfully:', savedData);
+  })
+  .catch((err) => {
+    console.error('Error saving data:', err);
+  });
+  
+
+  // Hívjuk meg az email küldőt
+ 
+
+  const emailResponse = sendEmail(errorMessage); 
+ console.log('emailResponse:', emailResponse);
+
+  // Flash üzenet beállítása az email küldés eredménye alapján
+if (emailResponse.success) {
+  req.flash('success', emailResponse.message); // Sikeres email küldés
+} else {
+  req.flash('error', emailResponse.message); // Sikertelen email küldés
+}
+
+  // Rendereljük az oldalt a flash üzenettel
+ 
+  res.render('closingWithError', { title: 'Hiány', error: req.error,  actualIncome, openingAmountNum, missingOpeningAmount, tips, missingIncome, flashes: req.flash() });
+ 
 };
