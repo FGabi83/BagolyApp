@@ -30,11 +30,12 @@ router.post('/VdfcUcU8p5ATP/drinks/update-tap', catchErrors(drinkController.upda
 
 //DAILY CLOSING
 //Display simple form
-router.get('/napi-zaras', catchErrors(formController.getForm));
+
+router.get('/YMPrgznAHYhnXFdy', formController.getForm);
 //Check form first time
-router.post('/napi-zaras', catchErrors(formController.checkForm), catchErrors(formController.getDetailedForm));
+router.post('/YMPrgznAHYhnXFdy/elso', catchErrors(formController.checkForm), formController.getDetailedForm);
 //Check form second time
-router.post('/napi-teteles-zaras', catchErrors(formController.checkForm), catchErrors(formController.getClosingWithError));
+router.post('/YMPrgznAHYhnXFdy/masodik', catchErrors(formController.checkForm), catchErrors(formController.getClosingWithError));
 
 //Must have pages
 

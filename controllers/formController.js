@@ -10,7 +10,7 @@ exports.getForm = (req, res) => {
 
 
 //CHECK FORM MIDDLEWARE
-exports.checkForm = (req, res, next) => {
+exports.checkForm = async (req, res, next) => {
   // Get the data from the form
   const { createdBy, shiftStart, countedAmount, openingAmount, personelConsumption, dailyIncome, tips } = req.body;
   //make sure all the data are numbers not strings
@@ -44,7 +44,7 @@ exports.checkForm = (req, res, next) => {
     const actualIncome = countedAmountNum - openingAmountNum - tipsNum;
     
     //save the data to mongoDB the data names should be different than the variable names
-    const ClosingData = new Closing({ 
+   const ClosingData = new Closing({ 
       Keszitette: createdBy, 
       Muszak_kezdete: shiftStart, 
       Kassza_tartalma: countedAmountNum, 
@@ -60,15 +60,37 @@ exports.checkForm = (req, res, next) => {
     .catch((err) => {
       console.error('Error saving data:', err);
     });
-    //Render the closing page with the actual income, the advised next day opening amount and the advised tips amount
-    res.render('closing', { title: 'Napi Zárás', actualIncome, openingAmountNum, tipsNum });
-    return;
-  } else {
-      
 
+    //Prepare the data for the sending email
+  
+  const emailMessage = {
+    actualIncome,
+    createdBy,
+    shiftStart
+  }
+
+  const errorMessage = {};
+
+  // Hívjuk meg az email küldőt
+ 
+
+  const emailResponse = await sendEmail(errorMessage, emailMessage); 
+ 
+  // Flash üzenet beállítása az email küldés eredménye alapján
+if (emailResponse.success) {
+  req.flash('success', emailResponse.message); // Sikeres email küldés
+} else {
+  req.flash('error', emailResponse.message); // Sikertelen email küldés
+}
+
+
+    //Render the closing page with the actual income, the advised next day opening amount and the advised tips amount
+    return res.render('closing', { title: 'Napi Zárás', actualIncome, openingAmountNum, tipsNum, emailMessage, errorMessage, flashes: req.flash() });
+    
+  } else {
     req.error = `A kasszafiók tartalma ${totalAmount - countedAmountNum} Ft-tal kevesebb a FruitSys-ből számított összegnél!`;
     next();
-    
+   
    };
   
 };
@@ -79,7 +101,9 @@ exports.getDetailedForm = (req, res) => {
 };
 
 //CLOSING WITH ERROR 
-exports.getClosingWithError =  (req, res) => {
+exports.getClosingWithError =  async (req, res) => {
+  if (res.headersSent) return;
+
   const { createdBy, shiftStart, countedAmountNum, openingAmountNum, personelConsumptionNum, dailyIncomeNum, tipsNum, totalAmount} =  req.closingData;
   const deficit = totalAmount - countedAmountNum;
   
@@ -87,26 +111,42 @@ exports.getClosingWithError =  (req, res) => {
   let tips = tipsNum - deficit;
 
   let missingOpeningAmount = 0;
-  if(tips < 0){
-    missingOpeningAmount = openingAmountNum - (openingAmountNum + tips);
+  if(tips < 0 && -1 * tips > openingAmountNum) {
+    tips = -1 * tips;
+    missingOpeningAmount = openingAmountNum - tips;
     tips = 0;
   } 
 
-  let missingIncome = 0;
-  if(missingOpeningAmount < 0){
-    missingIncome = actualIncome - (actualIncome + missingOpeningAmount);
+  if(tips < 0 && -1 * tips < openingAmountNum) {
+    missingOpeningAmount = -1 * tips;
+    tips = 0;
   } 
+  
+
+  let missingIncome = 0;
+    if(missingOpeningAmount < 0) {
+      missingIncome = actualIncome - (actualIncome + missingOpeningAmount);
+      missingOpeningAmount = openingAmountNum;
+    
+    }; 
+  
+  
+  
 
   //Prepare the data for the sending email
-  
+  const emailMessage = {
+    actualIncome,
+    createdBy,
+    shiftStart
+  }
   const errorMessage = {
     deficit,
     missingOpeningAmount,
     missingIncome
   }
-
+  
   //save the data to mongoDB the data names should be different than the variable names
-  const ClosingData = new Closing({ 
+ const ClosingData = new Closing({ 
     Keszitette: createdBy, 
     Muszak_kezdete: shiftStart, 
     Kassza_tartalma: countedAmountNum, 
@@ -127,18 +167,18 @@ exports.getClosingWithError =  (req, res) => {
   // Hívjuk meg az email küldőt
  
 
-  const emailResponse = sendEmail(errorMessage); 
- console.log('emailResponse:', emailResponse);
-
+  const emailResponse = await sendEmail(errorMessage, emailMessage); 
+ 
   // Flash üzenet beállítása az email küldés eredménye alapján
 if (emailResponse.success) {
   req.flash('success', emailResponse.message); // Sikeres email küldés
 } else {
   req.flash('error', emailResponse.message); // Sikertelen email küldés
 }
+ 
 
   // Rendereljük az oldalt a flash üzenettel
  
   res.render('closingWithError', { title: 'Hiány', error: req.error,  actualIncome, openingAmountNum, missingOpeningAmount, tips, missingIncome, flashes: req.flash() });
- 
+
 };

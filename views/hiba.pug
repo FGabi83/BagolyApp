@@ -1,0 +1,13 @@
+extends layout 
+
+include mixins/_head
+include mixins/_head-end
+
+
+block head 
+  meta(name="description" content="Hiba történt")
+  +head()
+  +headEnd()
+block content
+  main
+    p Valami hiba történt!  Az adatok vagy nem lettek elmentve, vagy email nem lett elküldve Petinek.
