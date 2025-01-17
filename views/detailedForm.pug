@@ -21,12 +21,13 @@ block head
     }
 
 block content
-  main.main__vertical 
-    h1= title
-    h2 Kassza fiók tartalma címletenként
+  main.main__vertical.form-layout 
+    h1.title.title__center.title__light= title
+    h2.text__dark.title__center Add meg a kasszafiók tartalmát címletenként
+    p.text__50.title__center A rendszer összeadja neked és automatikusan kitölti a "kasszafiók tartalma záráskor" mezőt.
       div#denomination-container
         each denomination in [20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5]
-          label.denomination-row
+          label.denomination-row.text__dark
             | #{denomination} Ft:
             input(type="number" step="1" min="0" placeholder="Db" data-denomination=denomination oninput="calculateTotal()")
         p Összesen: <span id="total-display">0 Ft</span>
@@ -38,8 +39,16 @@ block content
           option(value="Arpi") Árpi
           option(value="Peter") Péter
           option(value="Viki") Viki
+      label.text--medium(for="bartender") Adott műszakban szintén pultban volt
+        select.form__input.text--medium(id="bartender" name="bartender")
+          option(value="" disabled selected) -- Válassz egy nevet --
+          option(value="Arpi") Árpi
+          option(value="Kira") Kira
+          option(value="Mate") Máté
+          option(value="Peter") Péter
+          option(value="Viki") Viki
       label.text--medium(for="shiftStart") Műszak kezdete
         input.form__input.text--medium(type="date" id="shiftStart" name="shiftStart" required)
-      label.text--medium(for="countedAmount") Kasszafiók tartalma
+      label.text--medium(for="countedAmount") Kasszafiók tartalma záráskor
         input.form__input.text--medium(type="number" id="countedAmount" name="countedAmount" placeholder="Leszámolt összeg" required readonly)
       +closingForm()

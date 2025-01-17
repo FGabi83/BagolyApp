@@ -2,12 +2,20 @@
 /*-----------------------------------*\
 * CONTENT - FORM STYLES
 \*-----------------------------------*/
+.form-layout {
+  padding-top: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 3rem;
+}
+
 #denomination-container {
   display:       flex;
-  flex-flow:     column nowrap;
+  flex-flow:     column wrap;
+  max-height:        50vh;
   gap:           1rem;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -89,7 +97,17 @@
 /*MOBILE VERSION*/
 
 @media (max-width: 600px) {
- 
+  #denomination-container {
+    display:       flex;
+    flex-flow:     column nowrap;
+    max-height:     unset;
+    gap:           1rem;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
 
   .inner-devider {
     width:        100%;
@@ -123,6 +141,9 @@
 }
 
 @media (max-width: 472px) {
+  .form-layout {
+    padding-top: 1rem;
+  }
   .inner-devider {
     flex-flow:     column nowrap;
     gap:           1rem;

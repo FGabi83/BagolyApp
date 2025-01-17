@@ -55,7 +55,7 @@ const sendEmail = async (errorMessage, emailMessage) => {
   try {
     const hasError = errorMessage && Object.keys(errorMessage).length > 0;
     const { deficit, missingOpeningAmount, missingIncome } = errorMessage || {};
-    const { createdBy, shiftStart, actualIncome } = emailMessage;
+    const { createdBy, bartender, shiftStart, actualIncome } = emailMessage;
 
     const mailOptions = {
       from: "info@bagolypub.hu", // Sender's email
@@ -64,6 +64,7 @@ const sendEmail = async (errorMessage, emailMessage) => {
       html: hasError
         ? `
           <p><strong>Készítette:</strong> ${createdBy}</p>
+          <p><strong>Aznap szintén pultban volt:</strong> ${bartender}</p>
           <p><strong>Műszak kezdete:</strong> ${shiftStart}</p>
           <p><strong>Napi leadó:</strong> ${actualIncome} Ft</p>
           <p><strong>Hiány:</strong> ${deficit} Ft</p>
@@ -72,13 +73,14 @@ const sendEmail = async (errorMessage, emailMessage) => {
         `
         : `<p>A napi zárás rendben lezajlott.</p>
           <p><strong>Készítette:</strong> ${createdBy}</p>
+          <p><strong>Aznap szintén pultban volt:</strong> ${bartender}</p>
           <p><strong>Műszak kezdete:</strong> ${shiftStart}</p>
           <p><strong>Napi leadó:</strong> ${actualIncome} Ft</p>`,
     };
 
     await transporter.sendMail(mailOptions);
     console.log('Értesítés küldve Péternek');
-    return { success: true, message: 'Értesítést küldtünk Péternek' };
+    return { success: true, message: 'Értesítést küldtünk Péternek. Ne frissítsd az oldalt! Csak zárd be.' };
   } catch (error) {
     console.error('Hiba az üzenet küldésekor:', error);
     return { success: false, message: 'Valami hiba történt az üzenet küldése közben.' };

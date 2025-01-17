@@ -30,8 +30,11 @@ router.post('/VdfcUcU8p5ATP/drinks/update-tap', catchErrors(drinkController.upda
 
 //DAILY CLOSING
 //Display simple form
-
 router.get('/YMPrgznAHYhnXFdy', formController.getForm);
+//Display detailed form
+router.get('/YMPrgznAHYhnXFdy/masodik', (req, res) => {
+    res.render('detailedForm', { title: 'Részletes űrlap' });
+  });
 //Check form first time
 router.post('/YMPrgznAHYhnXFdy/elso', catchErrors(formController.checkForm), formController.getDetailedForm);
 //Check form second time

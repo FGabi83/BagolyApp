@@ -5,14 +5,14 @@ const sendEmail = require('../handlers/emailHandler');
 
 // DISPLAY SIMPLE FORM
 exports.getForm = (req, res) => {
-  res.render('form', { title: 'Nap zárás adatok megadása' });
+  res.render('form', { title: 'Napi zárás adatok megadása' });
 };
 
 
 //CHECK FORM MIDDLEWARE
 exports.checkForm = async (req, res, next) => {
   // Get the data from the form
-  const { createdBy, shiftStart, countedAmount, openingAmount, personelConsumption, dailyIncome, tips } = req.body;
+  const { createdBy, bartender, shiftStart, countedAmount, openingAmount, personelConsumption, dailyIncome, tips } = req.body;
   //make sure all the data are numbers not strings
   const countedAmountNum = parseInt(countedAmount);
   const openingAmountNum = parseInt(openingAmount);
@@ -28,6 +28,7 @@ exports.checkForm = async (req, res, next) => {
   //Prepare the data for the closingWithError page
   req.closingData = {
     createdBy,
+    bartender,
     shiftStart,
     countedAmountNum,
     openingAmountNum,
@@ -45,7 +46,8 @@ exports.checkForm = async (req, res, next) => {
     
     //save the data to mongoDB the data names should be different than the variable names
    const ClosingData = new Closing({ 
-      Keszitette: createdBy, 
+      Keszitette: createdBy,
+      Tovabbi_pultos: bartender, 
       Muszak_kezdete: shiftStart, 
       Kassza_tartalma: countedAmountNum, 
       Kassza_nyito: openingAmountNum, 
@@ -66,6 +68,7 @@ exports.checkForm = async (req, res, next) => {
   const emailMessage = {
     actualIncome,
     createdBy,
+    bartender,
     shiftStart
   }
 
@@ -85,7 +88,7 @@ if (emailResponse.success) {
 
 
     //Render the closing page with the actual income, the advised next day opening amount and the advised tips amount
-    return res.render('closing', { title: 'Napi Zárás', actualIncome, openingAmountNum, tipsNum, emailMessage, errorMessage, flashes: req.flash() });
+    res.render('closing', { title: 'Sikeres napi zárás', actualIncome, openingAmountNum, tipsNum, flashes: req.flash() });
     
   } else {
     req.error = `A kasszafiók tartalma ${totalAmount - countedAmountNum} Ft-tal kevesebb a FruitSys-ből számított összegnél!`;
@@ -97,14 +100,13 @@ if (emailResponse.success) {
 
 // DISPLAY DETAILED FORM
 exports.getDetailedForm = (req, res) => {
-  res.render('detailedForm', { title: 'Napi zárás részletes adatok megadása' });
+  res.render('detailedForm', { title: 'Kasszafiók tartalma túl kevés, számold meg újra!' });
 };
 
 //CLOSING WITH ERROR 
 exports.getClosingWithError =  async (req, res) => {
-  if (res.headersSent) return;
-
-  const { createdBy, shiftStart, countedAmountNum, openingAmountNum, personelConsumptionNum, dailyIncomeNum, tipsNum, totalAmount} =  req.closingData;
+ 
+  const { createdBy, bartender, shiftStart, countedAmountNum, openingAmountNum, personelConsumptionNum, dailyIncomeNum, tipsNum, totalAmount} =  req.closingData;
   const deficit = totalAmount - countedAmountNum;
   
   const actualIncome = totalAmount - openingAmountNum - tipsNum;
@@ -137,6 +139,7 @@ exports.getClosingWithError =  async (req, res) => {
   const emailMessage = {
     actualIncome,
     createdBy,
+    bartender,
     shiftStart
   }
   const errorMessage = {
@@ -147,7 +150,8 @@ exports.getClosingWithError =  async (req, res) => {
   
   //save the data to mongoDB the data names should be different than the variable names
  const ClosingData = new Closing({ 
-    Keszitette: createdBy, 
+    Keszitette: createdBy,
+    Tovabbi_pultos: bartender, 
     Muszak_kezdete: shiftStart, 
     Kassza_tartalma: countedAmountNum, 
     Kassza_nyito: openingAmountNum, 
@@ -179,6 +183,6 @@ if (emailResponse.success) {
 
   // Rendereljük az oldalt a flash üzenettel
  
-  res.render('closingWithError', { title: 'Hiány', error: req.error,  actualIncome, openingAmountNum, missingOpeningAmount, tips, missingIncome, flashes: req.flash() });
-
+  res.render('closingWithError', { title: 'Hiány napi záráskor', error: req.error,  actualIncome, openingAmountNum, missingOpeningAmount, tips, missingIncome, flashes: req.flash() });
+  return;
 };

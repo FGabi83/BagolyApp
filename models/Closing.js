@@ -8,6 +8,10 @@ const closingSchema = new mongoose.Schema({
     trim: true, // removes white space
     required: 'Please select your name!' 
   },
+  Tovabbi_pultos: {
+    type: String,
+    trim: true,
+  },
   //save the creation date
   created: {
     type: Date,

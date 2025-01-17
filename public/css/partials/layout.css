@@ -48,7 +48,9 @@
     padding:        1rem .5rem 1rem .5rem;
   }
 
-  
+  .margin-top {
+    margin-top: 1rem;
+  }
 
   @media (max-width: 923px) {
     main {

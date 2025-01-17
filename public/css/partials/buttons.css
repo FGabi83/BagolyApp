@@ -33,14 +33,18 @@
 
     .btn__hollow {
       background:   transparent;
-      border-color: var(--secondary-color);
-      color:        var(--secondary-color);
+      border-color: var(--brand-color);
+      color:        var(--brand-color);
     }
 
     .btn__hollow:hover {
-      background:   var(--secondary-color);
-      border-color: var(--secondary-color);
-      color:        var(--brand-color);
+      background:   var(--brand-color);
+      border-color: var(--brand-color);
+      color:        var(--secondary-color);
+    }
+
+    .btn__autoWidth {
+      width: auto;
     }
 
     /* On tablet and mobile there is no hover effect */
