@@ -43,6 +43,18 @@
       color:        var(--secondary-color);
     }
 
+    .btn__hero {
+      background:   transparent;
+      border-color: var(--secondary-color);
+      color:        var(--secondary-color);
+    }
+
+    .btn__hero:hover {
+      background:   var(--secondary-color);
+      border-color: var(--secondary-color);
+      color:        var(--brand-color);
+    }
+
     .btn__autoWidth {
       width: auto;
     }

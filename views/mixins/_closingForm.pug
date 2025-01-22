@@ -1,11 +1,26 @@
-mixin closingForm()
-  h2 Adatok FruitSys-ből:
-  label.text--medium(for="openingAmount") Kassza nyitó összeg (váltó)
-    input.form__input.text--medium(type="number" id="openingAmount" name="openingAmount" placeholder="Pénztár jelentés/Nyitó pénzkészlet/készpénz" required)
-  label.text--medium(for="dailyIncome") Napi készpénz forgalom 
-    input.form__input.text--medium(type="number" id="dailyIncome" name="dailyIncome" placeholder="Pénztár jelentés/Napi forgalom/készpénz" required)
-  label.text--medium(for="personelConsumption") Személyzeti fogyasztás 
-    input.form__input.text--medium(type="number" id="personelConsumption" name="personelConsumption" placeholder="Pénzforgalmi elszámolás/Személyzeti fogyasztás" required)
-  label.text--medium(for="tips") Borravaló 
-    input.form__input.text--medium(type="number" id="tips" name="tips" placeholder="Pénzforgalmi elszámolás/Borravaló" required)  
-  input.btn.btn-primary(type="submit" value= "Küldés")
+mixin closingForm(actionURL)
+  form.form(action=actionURL method='POST' id='dataForm')
+    label.text--medium(for="createdBy") Elszámolást készítette
+      select.form__input.text--medium(id="createdBy" name="createdBy" required)
+        option(value="" disabled selected=!(createdBy))  -- Válassz egy nevet --  
+        each name in h.names
+          option(value=name.value selected=(createdBy === name.value))= name.label  
+    label.text--medium(for="bartender") Adott műszakban szintén pultban volt
+      select.form__input.text--medium(id="bartender" name="bartender")
+        option(value="" selected=!(bartender)) Egyedül voltam
+        each name in h.names
+          option(value=name.value selected=(bartender === name.value))= name.label
+    label.text--medium(for="shiftStart") Műszak kezdete
+      input.form__input.text--medium(type="date" id="shiftStart" name="shiftStart" required)
+    label.text--medium(for="countedAmount") Kasszafiók tartalma záráskor
+      input.form__input.text--medium(type="number" id="countedAmount" name="countedAmount" placeholder="Leszámolt összeg" required)
+    h2 Adatok FruitSys-ből:
+    label.text--medium(for="openingAmount") Kassza nyitó összeg (váltó)
+      input.form__input.text--medium(type="number" id="openingAmount" name="openingAmount" placeholder="Pénztár jelentés/Nyitó pénzkészlet/készpénz" required)
+    label.text--medium(for="dailyIncome") Napi készpénz forgalom 
+      input.form__input.text--medium(type="number" id="dailyIncome" name="dailyIncome" placeholder="Pénztár jelentés/Napi forgalom/készpénz" required)
+    label.text--medium(for="personelConsumption") Személyzeti fogyasztás 
+      input.form__input.text--medium(type="number" id="personelConsumption" name="personelConsumption" placeholder="Pénzforgalmi elszámolás/Személyzeti fogyasztás" required)
+    label.text--medium(for="tips") Borravaló 
+      input.form__input.text--medium(type="number" id="tips" name="tips" placeholder="Pénzforgalmi elszámolás/Borravaló" required)  
+    button.btn.btn-primary(type="submit" id="submitButton" ) Küldés

@@ -86,9 +86,17 @@ if (emailResponse.success) {
   req.flash('error', emailResponse.message); // Sikertelen email küldés
 }
 
+// Session data elmentése
 
-    //Render the closing page with the actual income, the advised next day opening amount and the advised tips amount
-    res.render('closing', { title: 'Sikeres napi zárás', actualIncome, openingAmountNum, tipsNum, flashes: req.flash() });
+req.session.closingResult = {
+  actualIncome,
+  openingAmountNum, 
+  tipsNum
+  
+}
+
+    //Redirect to show results
+    res.redirect('/eredmeny');
     
   } else {
     req.error = `A kasszafiók tartalma ${totalAmount - countedAmountNum} Ft-tal kevesebb a FruitSys-ből számított összegnél!`;
@@ -100,7 +108,8 @@ if (emailResponse.success) {
 
 // DISPLAY DETAILED FORM
 exports.getDetailedForm = (req, res) => {
-  res.render('detailedForm', { title: 'Kasszafiók tartalma túl kevés, számold meg újra!' });
+  const { createdBy, bartender } = req.closingData;
+  res.render('detailedForm', { title: 'Kasszafiók tartalma túl kevés, számold meg újra!', createdBy, bartender });
 };
 
 //CLOSING WITH ERROR 
@@ -179,10 +188,22 @@ if (emailResponse.success) {
 } else {
   req.flash('error', emailResponse.message); // Sikertelen email küldés
 }
- 
 
-  // Rendereljük az oldalt a flash üzenettel
+  // Session data elmentése
+
+req.session.closingResult = {
+  error: req.error,
+  actualIncome,
+  openingAmountNum,
+  missingOpeningAmount,
+  tips,
+  missingIncome
+  
+}
+
+
+  // Redirect to hiany
  
-  res.render('closingWithError', { title: 'Hiány napi záráskor', error: req.error,  actualIncome, openingAmountNum, missingOpeningAmount, tips, missingIncome, flashes: req.flash() });
-  return;
+  res.redirect('/hiany');
+
 };

@@ -7,28 +7,12 @@ include mixins/_closingForm
 block head 
   +head()
   +headEnd()
+  script(src="/javascripts/modules/form.js")
 
 block content
   main.main__vertical.form-layout 
     h1.title.title__center.title__light= title
-    form.form(action='/YMPrgznAHYhnXFdy/elso' method='POST')
-      label.text--medium(for="createdBy") Elszámolást készítette
-        select.form__input.text--medium(id="createdBy" name="createdBy" required)
-          option(value="" disabled selected) -- Válassz egy nevet --
-          option(value="Adam") Ádám
-          option(value="Arpi") Árpi
-          option(value="Peter") Péter
-          option(value="Viki") Viki
-      label.text--medium(for="bartender") Adott műszakban szintén pultban volt
-        select.form__input.text--medium(id="bartender" name="bartender")
-          option(value="" disabled selected) -- Válassz egy nevet --
-          option(value="Arpi") Árpi
-          option(value="Kira") Kira
-          option(value="Mate") Máté
-          option(value="Peter") Péter
-          option(value="Viki") Viki
-      label.text--medium(for="shiftStart") Műszak kezdete
-        input.form__input.text--medium(type="date" id="shiftStart" name="shiftStart" required)
-      label.text--medium(for="countedAmount") Kasszafiók tartalma záráskor
-        input.form__input.text--medium(type="number" id="countedAmount" name="countedAmount" placeholder="Leszámolt összeg" required)
-      +closingForm()
+    +closingForm('/YMPrgznAHYhnXFdy/elso')
+
+
+  

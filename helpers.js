@@ -22,6 +22,13 @@ exports.menu = [
   { slug: '/', title: 'Kezdőlap', },
   { slug: '/kinalat', title: 'Kínálat', },
   { slug: '/kapcsolat', title: 'Kapcsolat', },
-  
-  
+];
+
+exports.names = [
+  { value: "Adam", label: "Ádám" },
+  { value: "Arpi", label: "Árpi" },
+  { value: "Kira", label: "Kira" },
+  { value: "Mate", label: "Máté" },
+  { value: "Peter", label: "Péter" },
+  { value: "Viki", label: "Viki" },
 ];

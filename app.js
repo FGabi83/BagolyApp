@@ -35,7 +35,15 @@ app.use(session({
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 60000 }
+  store: MongoStore.create({ mongoUrl: process.env.DATABASE }),
+  ttl: 14 * 24 * 60 * 60, // = 14 days. Default
+  autoRemove: 'native',
+  cookie: { 
+    maxAge: 60000,
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production', // production-ben lehet csak true
+    sameSite: 'strict',
+   }
 }));
 
 

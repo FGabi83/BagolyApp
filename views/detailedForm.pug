@@ -7,18 +7,8 @@ include mixins/_closingForm
 block head 
   +head()
   +headEnd()
-  script.
-    function calculateTotal() {
-      const rows = document.querySelectorAll('.denomination-row input');
-      let total = 0;
-      rows.forEach(row => {
-        const value = parseFloat(row.dataset.denomination) || 0;
-        const count = parseInt(row.value) || 0;
-        total += value * count;
-      });
-      document.getElementById('countedAmount').value = total;
-      document.getElementById('total-display').textContent = total + ' Ft';
-    }
+  script(src="/javascripts/modules/calculateTotal.js")
+  script(src="/javascripts/modules/form.js")
 
 block content
   main.main__vertical.form-layout 
@@ -31,24 +21,4 @@ block content
             | #{denomination} Ft:
             input(type="number" step="1" min="0" placeholder="Db" data-denomination=denomination oninput="calculateTotal()")
         p Összesen: <span id="total-display">0 Ft</span>
-    form.form(action='/YMPrgznAHYhnXFdy/masodik' method='POST')
-      label.text--medium(for="createdBy") Elszámolást készítette
-        select.form__input.text--medium(id="createdBy" name="createdBy" required)
-          option(value="" disabled selected) -- Válassz egy nevet --
-          option(value="Adam") Ádám
-          option(value="Arpi") Árpi
-          option(value="Peter") Péter
-          option(value="Viki") Viki
-      label.text--medium(for="bartender") Adott műszakban szintén pultban volt
-        select.form__input.text--medium(id="bartender" name="bartender")
-          option(value="" disabled selected) -- Válassz egy nevet --
-          option(value="Arpi") Árpi
-          option(value="Kira") Kira
-          option(value="Mate") Máté
-          option(value="Peter") Péter
-          option(value="Viki") Viki
-      label.text--medium(for="shiftStart") Műszak kezdete
-        input.form__input.text--medium(type="date" id="shiftStart" name="shiftStart" required)
-      label.text--medium(for="countedAmount") Kasszafiók tartalma záráskor
-        input.form__input.text--medium(type="number" id="countedAmount" name="countedAmount" placeholder="Leszámolt összeg" required readonly)
-      +closingForm()
+    +closingForm('/YMPrgznAHYhnXFdy/masodik')
