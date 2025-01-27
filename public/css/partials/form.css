@@ -31,7 +31,8 @@
 }
 
   .denomination-row > * {
-    width: 4ch;
+    width: 8ch;
+    
   }
 .form {
   display:       flex;
