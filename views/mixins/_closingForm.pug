@@ -13,10 +13,10 @@ mixin closingForm(actionURL)
     label.text--medium(for="shiftStart") Műszak kezdete
       input.form__input.text--medium(type="date" id="shiftStart" name="shiftStart" required)
     label.text--medium(for="countedAmount") Kasszafiók tartalma záráskor
-      input.form__input.text--medium(type="number" id="countedAmount" name="countedAmount" placeholder="Leszámolt összeg" required)
+      input.form__input.text--medium(type="number"  id="countedAmount" name="countedAmount" placeholder="Leszámolt összeg" required)
     h2 Adatok FruitSys-ből:
-    label.text--medium(for="openingAmount") Kassza nyitó összeg (váltó)
-      input.form__input.text--medium(type="number" id="openingAmount" name="openingAmount" placeholder="Pénztár jelentés/Nyitó pénzkészlet/készpénz" required)
+    label.text--medium(for="openingAmount") Kassza nyitó összeg 
+      input.form__input.text--medium(type="number" id="openingAmount" name="openingAmount" placeholder="Nyitáskor pontosan leszámolt váltó" required)
     label.text--medium(for="dailyIncome") Napi készpénz forgalom 
       input.form__input.text--medium(type="number" id="dailyIncome" name="dailyIncome" placeholder="Pénztár jelentés/Napi forgalom/készpénz" required)
     label.text--medium(for="personelConsumption") Személyzeti fogyasztás 

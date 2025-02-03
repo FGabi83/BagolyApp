@@ -68,6 +68,11 @@ router.get('/hiany', (req, res) => {
     res.render('closingWithError', { title: 'Hiány napi záráskor', ...results, successMessage, errorMessage });
 })
 
+//HIBA
+router.get('/hiba', (req, res) => {
+    res.render('hiba', { title: 'Hiba' });
+});
+
 
 //Must have pages
 

@@ -105,6 +105,10 @@ html {
         /*padding: 1rem;*/
       }
 
+      .text__lowercase {
+        text-transform: lowercase;
+      }
+
       @media (max-width: 600px) {
         .text__50 {
           width: min(420px, 90%);

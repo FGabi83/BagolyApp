@@ -25,9 +25,13 @@ const closingSchema = new mongoose.Schema({
     type: Number,
     required: 'Fill in the counted amount!'
   },
-  Leado: {
+  Kassza_nyito: {
     type: Number,
-    required: 'Fill in the actual income!'
+    required: 'Fill in the next day opening amount!'
+  },
+  Kp_forgalom: {
+    type: Number,
+    required: 'Fill in the daily income!'
   },
   Szemelyzeti_fogyasztas: {
     type: Number,
@@ -35,10 +39,22 @@ const closingSchema = new mongoose.Schema({
   Borravalo: {
     type: Number,
   },
-  Kassza_nyito: {
+  Felvett_borravalo: {
     type: Number,
-    required: 'Fill in the next day opening amount!'
   },
+  Leado: {
+    type: Number,
+    required: 'Fill in the actual income!'
+  },
+  Kassza_zaro: {
+    type: Number,
+    
+  },
+  Hiany: {
+    type: Number,
+  },
+  
+  
   
 });
   

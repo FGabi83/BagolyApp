@@ -55,7 +55,7 @@ const sendEmail = async (errorMessage, emailMessage) => {
   try {
     const hasError = errorMessage && Object.keys(errorMessage).length > 0;
     const { deficit, missingOpeningAmount, missingIncome } = errorMessage || {};
-    const { createdBy, bartender, shiftStart, actualIncome } = emailMessage;
+    const { createdBy, bartender, shiftStart, countedAmountNum, openingAmountNum, dailyIncomeNum, actualIncome, tips, closingAmount, difference, personelConsumptionNum } = emailMessage;
 
     const mailOptions = {
       from: "info@bagolypub.hu", // Sender's email
@@ -63,19 +63,32 @@ const sendEmail = async (errorMessage, emailMessage) => {
       subject: hasError ? "Hiány záráskor" : "Napi zárás", // Subject of the email
       html: hasError
         ? `
+          <p><strong>${deficit} Ft hiány záráskor.</strong> </p>
           <p><strong>Készítette:</strong> ${createdBy}</p>
           <p><strong>Aznap szintén pultban volt:</strong> ${bartender}</p>
           <p><strong>Műszak kezdete:</strong> ${shiftStart}</p>
+          <p><strong>Kasszafiók tartalma:</strong> ${countedAmountNum}</p>
+          <p><strong>Kassza nyitó:</strong> ${openingAmountNum}</p>
+          <p><strong>Napi kp forgalom:</strong> ${dailyIncomeNum}</p>
+          <p><strong>Személyzeti fogyasztás:</strong> ${personelConsumptionNum}</p>
           <p><strong>Napi leadó:</strong> ${actualIncome} Ft</p>
-          <p><strong>Hiány:</strong> ${deficit} Ft</p>
+          <p><strong>Felvett borravaló:</strong> ${tips}</p>
           <p><strong>Napi váltóból</strong> ${missingOpeningAmount} Ft hiányzik.</p>
           <p><strong>Leadóból</strong> ${missingIncome} Ft hiányzik.</p>
+          <p><strong>Kassza záró:</strong> ${closingAmount}</p>
         `
         : `<p>A napi zárás rendben lezajlott.</p>
           <p><strong>Készítette:</strong> ${createdBy}</p>
           <p><strong>Aznap szintén pultban volt:</strong> ${bartender}</p>
           <p><strong>Műszak kezdete:</strong> ${shiftStart}</p>
-          <p><strong>Napi leadó:</strong> ${actualIncome} Ft</p>`,
+          <p><strong>Kasszafiók tartalma:</strong> ${countedAmountNum}</p>
+          <p>Kassza tartalma ${difference} Ft-tal volt kevesebb a vártnál.</p>
+          <p><strong>Kassza nyitó:</strong> ${openingAmountNum}</p>
+          <p><strong>Napi kp forgalom:</strong> ${dailyIncomeNum}</p>
+          <p><strong>Személyzeti fogyasztás:</strong> ${personelConsumptionNum}</p>
+          <p><strong>Napi leadó:</strong> ${actualIncome} Ft</p>
+          <p><strong>Felvett borravaló:</strong> ${tips}</p>
+          <p><strong>Kassza záró:</strong> ${closingAmount}</p>`,
     };
 
     await transporter.sendMail(mailOptions);
