@@ -43,22 +43,37 @@ exports.checkForm = async (req, res, next) => {
    //Check the difference between the counted amount and the calculated amount
   if(countedAmountNum >= totalAmount || (countedAmountNum < totalAmount && totalAmount - countedAmountNum <= 500)) {
     //If the counted amount is greater than or equals to the calculated amount, calculate how much the actual income was, and advise how much they should leave in the cassa for next day's opening (by default it is 50000) and advise how much they should take as tips
-    let actualIncome = countedAmountNum - openingAmountNum - tipsNum;
+    let calculatedIncome = countedAmountNum - openingAmountNum - tipsNum;
+    let surplus = countedAmountNum - totalAmount;
+    if(surplus < 0) {
+      surplus = 0;
+    }
     let difference = 0;
     if(countedAmountNum < totalAmount) {
       difference = totalAmount - countedAmountNum;
-      actualIncome = totalAmount - openingAmountNum - tipsNum;
-    };
+      calculatedIncome = totalAmount - openingAmountNum - tipsNum;
+   };
+  
+  
     let tips = tipsNum - difference;
     let closingAmount = openingAmountNum;
+    let actualIncome = calculatedIncome;
     if(tips < 0) {
-      closingAmount = openingAmountNum - (tips * -1);
+      closingAmount = openingAmountNum + tips;
       tips = 0;
     }
+    if (calculatedIncome < 0) { 
+      closingAmount = closingAmount + calculatedIncome;
+    }
 
-    if (actualIncome < 0) { 
-      closingAmount = closingAmount + actualIncome;
-    };
+    /*Rounding calculatedIncome */
+    if(calculatedIncome > 0 && difference === 0) {
+      actualIncome = Math.floor(calculatedIncome / 500) * 500;
+    }
+
+    let rounding = calculatedIncome - actualIncome;
+    closingAmount = closingAmount + rounding;
+
 
 
     
@@ -99,6 +114,7 @@ exports.checkForm = async (req, res, next) => {
       tips,
       closingAmount,
       difference,
+      surplus,
       personelConsumptionNum
     };
 
@@ -123,23 +139,15 @@ exports.checkForm = async (req, res, next) => {
     };
 
     // Redirect a sikeres eredmény oldalra
-    res.redirect('/eredmeny');
+    return res.redirect('/eredmeny');
   })
   .catch((err) => {
     console.error('Error saving data:', err);
      // Flash üzenet a sikertelen adatbázis mentésről
      req.flash('error', 'Nem sikerült elmenteni az adatokat az adatbázisba!');
 
-     // Opcionálisan küldhetünk emailt az adatbázis hibáról
-     const errorMessage = {
-       subject: 'Hiba történt az adatbázis mentése közben',
-       body: `Hibaüzenet: ${err.message}`,
-       createdBy,
-       bartender,
-       shiftStart
-     };
- 
-     sendEmail(errorMessage, null); // Csak hibaüzenetet küldünk
+     
+    
     return res.redirect('/hiba'); // Irányítsd vissza egy hibakezelő oldalra vagy az űrlapra
   });
 
@@ -209,17 +217,18 @@ exports.getClosingWithError =  async (req, res) => {
   const { createdBy, bartender, shiftStart, countedAmountNum, openingAmountNum, personelConsumptionNum, dailyIncomeNum, tipsNum, totalAmount} =  req.closingData;
   const deficit = totalAmount - countedAmountNum;
   
-  const actualIncome = totalAmount - openingAmountNum - tipsNum;
+  let actualIncome = totalAmount - openingAmountNum - tipsNum;
   let tips = tipsNum - deficit;
 
   let missingOpeningAmount = 0;
+  let missingIncome = 0;
   if(tips < 0 && -1 * tips > openingAmountNum) {
-    tips = -1 * tips;
-    missingOpeningAmount = openingAmountNum - tips;
+    missingOpeningAmount = openingAmountNum;
+    missingIncome = Math.abs(openingAmountNum + tips);
     tips = 0;
   } 
 
-  if(tips < 0 && -1 * tips < openingAmountNum) {
+  if(tips < 0 && -1 * tips <= openingAmountNum) {
     missingOpeningAmount = -1 * tips;
     tips = 0;
   } 
@@ -229,13 +238,6 @@ exports.getClosingWithError =  async (req, res) => {
     closingAmount = closingAmount + actualIncome;
   };
 
-  let missingIncome = 0;
-    if(missingOpeningAmount < 0) {
-      missingIncome = actualIncome - (actualIncome + missingOpeningAmount);
-      missingOpeningAmount = openingAmountNum;
-    
-    }; 
-  
   
   
 

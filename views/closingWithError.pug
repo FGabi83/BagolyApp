@@ -13,6 +13,8 @@ block content
       h1.title.title__center.title__light= error
       div
         p.text__dark A <span class="text__bold">leadó</span> #{actualIncome} Ft
+        if actualIncome < 0
+          p Tényleges leadó nyilván 0. 
         p.text__dark A <span class="text__bold">borravaló</span> #{tips} Ft
         p.text__dark A kasszában marad: <span class="text__bold">#{closingAmount} Ft</span>
         p.text__dark A napi váltóból <span class="text__bold">#{missingOpeningAmount} Ft hiányzik</span>

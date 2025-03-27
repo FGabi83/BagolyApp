@@ -55,12 +55,12 @@ const sendEmail = async (errorMessage, emailMessage) => {
   try {
     const hasError = errorMessage && Object.keys(errorMessage).length > 0;
     const { deficit, missingOpeningAmount, missingIncome } = errorMessage || {};
-    const { createdBy, bartender, shiftStart, countedAmountNum, openingAmountNum, dailyIncomeNum, actualIncome, tips, closingAmount, difference, personelConsumptionNum } = emailMessage;
+    const { createdBy, bartender, shiftStart, countedAmountNum, openingAmountNum, dailyIncomeNum, actualIncome, tips, closingAmount, difference, surplus, personelConsumptionNum } = emailMessage;
 
     const mailOptions = {
       from: "info@bagolypub.hu", // Sender's email
       to: process.env.MAIL_RECEIVER, // Receiver's email
-      subject: hasError ? "Hiány záráskor" : "Napi zárás", // Subject of the email
+      subject: hasError ? `Zárás Hiány ${shiftStart}` : `Zárás Sikeres ${shiftStart}`, // Subject of the email
       html: hasError
         ? `
           <p><strong>${deficit} Ft hiány záráskor.</strong> </p>
@@ -83,6 +83,7 @@ const sendEmail = async (errorMessage, emailMessage) => {
           <p><strong>Műszak kezdete:</strong> ${shiftStart}</p>
           <p><strong>Kasszafiók tartalma:</strong> ${countedAmountNum}</p>
           <p>Kassza tartalma ${difference} Ft-tal volt kevesebb a vártnál.</p>
+          <p><strong>${surplus} Ft többlet</strong> volt záráskor.</p>
           <p><strong>Kassza nyitó:</strong> ${openingAmountNum}</p>
           <p><strong>Napi kp forgalom:</strong> ${dailyIncomeNum}</p>
           <p><strong>Személyzeti fogyasztás:</strong> ${personelConsumptionNum}</p>
@@ -93,7 +94,7 @@ const sendEmail = async (errorMessage, emailMessage) => {
 
     await transporter.sendMail(mailOptions);
     console.log('Értesítés küldve Péternek');
-    return { success: true, message: 'Értesítést küldtünk Péternek. Ne frissítsd az oldalt! Csak zárd be.' };
+    return { success: true, message: 'Értesítést küldtünk Péternek.' };
   } catch (error) {
     console.error('Hiba az üzenet küldésekor:', error);
     return { success: false, message: 'Valami hiba történt az üzenet küldése közben.' };
