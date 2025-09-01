@@ -12,11 +12,11 @@
 #denomination-container {
   display:       flex;
   flex-flow:     column wrap;
-  max-height:        50vh;
+  max-height:    50vh;
   gap:           1rem;
   justify-content: flex-start;
-  align-items: center;
-  margin-top: 2rem;
+  align-items:   center;
+  margin-top:    2rem;
   margin-bottom: 2rem;
 }
 

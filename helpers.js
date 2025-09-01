@@ -26,9 +26,8 @@ exports.menu = [
 
 exports.names = [
   { value: "Adam", label: "Ádám" },
-  { value: "Arpi", label: "Árpi" },
   { value: "Kira", label: "Kira" },
-  { value: "Mate", label: "Máté" },
   { value: "Peter", label: "Péter" },
+  { value: "Samu", label: "Samu" },
   { value: "Viki", label: "Viki" },
 ];
